@@ -1,4 +1,4 @@
-// UIDesigner.cpp : ¶¨ÒåÓ¦ÓÃ³ÌĞòµÄÀàĞĞÎª¡£
+ï»¿// UIDesigner.cpp : å®šä¹‰åº”ç”¨ç¨‹åºçš„ç±»è¡Œä¸ºã€‚
 //
 
 #include "stdafx.h"
@@ -20,61 +20,61 @@
 
 BEGIN_MESSAGE_MAP(CUIDesignerApp, CWinAppEx)
 	ON_COMMAND(ID_APP_ABOUT, &CUIDesignerApp::OnAppAbout)
-	// »ùÓÚÎÄ¼şµÄ±ê×¼ÎÄµµÃüÁî
+	// åŸºäºæ–‡ä»¶çš„æ ‡å‡†æ–‡æ¡£å‘½ä»¤
 	ON_COMMAND(ID_FILE_NEW, &CUIDesignerApp::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
 END_MESSAGE_MAP()
 
 
-// CUIDesignerApp ¹¹Ôì
+// CUIDesignerApp æ„é€ 
 
 CUIDesignerApp::CUIDesignerApp()
 {
 
 	m_bHiColorIcons = TRUE;
 
-	// TODO: ÔÚ´Ë´¦Ìí¼Ó¹¹Ôì´úÂë£¬
-	// ½«ËùÓĞÖØÒªµÄ³õÊ¼»¯·ÅÖÃÔÚ InitInstance ÖĞ
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ„é€ ä»£ç ï¼Œ
+	// å°†æ‰€æœ‰é‡è¦çš„åˆå§‹åŒ–æ”¾ç½®åœ¨ InitInstance ä¸­
 	m_pUIDocTemplate = NULL;
 }
 
-// Î¨Ò»µÄÒ»¸ö CUIDesignerApp ¶ÔÏó
+// å”¯ä¸€çš„ä¸€ä¸ª CUIDesignerApp å¯¹è±¡
 
 CUIDesignerApp theApp;
 
 
-// CUIDesignerApp ³õÊ¼»¯
+// CUIDesignerApp åˆå§‹åŒ–
 
 BOOL CUIDesignerApp::InitInstance()
 {
-	// Èç¹ûÒ»¸öÔËĞĞÔÚ Windows XP ÉÏµÄÓ¦ÓÃ³ÌĞòÇåµ¥Ö¸¶¨Òª
-	// Ê¹ÓÃ ComCtl32.dll °æ±¾ 6 »ò¸ü¸ß°æ±¾À´ÆôÓÃ¿ÉÊÓ»¯·½Ê½£¬
-	//ÔòĞèÒª InitCommonControlsEx()¡£·ñÔò£¬½«ÎŞ·¨´´½¨´°¿Ú¡£
+	// å¦‚æœä¸€ä¸ªè¿è¡Œåœ¨ Windows XP ä¸Šçš„åº”ç”¨ç¨‹åºæ¸…å•æŒ‡å®šè¦
+	// ä½¿ç”¨ ComCtl32.dll ç‰ˆæœ¬ 6 æˆ–æ›´é«˜ç‰ˆæœ¬æ¥å¯ç”¨å¯è§†åŒ–æ–¹å¼ï¼Œ
+	//åˆ™éœ€è¦ InitCommonControlsEx()ã€‚å¦åˆ™ï¼Œå°†æ— æ³•åˆ›å»ºçª—å£ã€‚
 	INITCOMMONCONTROLSEX InitCtrls;
 	InitCtrls.dwSize = sizeof(InitCtrls);
-	// ½«ËüÉèÖÃÎª°üÀ¨ËùÓĞÒªÔÚÓ¦ÓÃ³ÌĞòÖĞÊ¹ÓÃµÄ
-	// ¹«¹²¿Ø¼şÀà¡£
+	// å°†å®ƒè®¾ç½®ä¸ºåŒ…æ‹¬æ‰€æœ‰è¦åœ¨åº”ç”¨ç¨‹åºä¸­ä½¿ç”¨çš„
+	// å…¬å…±æ§ä»¶ç±»ã€‚
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
 
 	CWinAppEx::InitInstance();
 
-	// ³õÊ¼»¯ OLE ¿â
+	// åˆå§‹åŒ– OLE åº“
 	if (!AfxOleInit())
 	{
 		AfxMessageBox(IDP_OLE_INIT_FAILED);
 		return FALSE;
 	}
 	AfxEnableControlContainer();
-	// ±ê×¼³õÊ¼»¯
-	// Èç¹ûÎ´Ê¹ÓÃÕâĞ©¹¦ÄÜ²¢Ï£Íû¼õĞ¡
-	// ×îÖÕ¿ÉÖ´ĞĞÎÄ¼şµÄ´óĞ¡£¬ÔòÓ¦ÒÆ³ıÏÂÁĞ
-	// ²»ĞèÒªµÄÌØ¶¨³õÊ¼»¯Àı³Ì
-	// ¸ü¸ÄÓÃÓÚ´æ´¢ÉèÖÃµÄ×¢²á±íÏî
-	// TODO: Ó¦ÊÊµ±ĞŞ¸Ä¸Ã×Ö·û´®£¬
-	// ÀıÈçĞŞ¸ÄÎª¹«Ë¾»ò×éÖ¯Ãû
+	// æ ‡å‡†åˆå§‹åŒ–
+	// å¦‚æœæœªä½¿ç”¨è¿™äº›åŠŸèƒ½å¹¶å¸Œæœ›å‡å°
+	// æœ€ç»ˆå¯æ‰§è¡Œæ–‡ä»¶çš„å¤§å°ï¼Œåˆ™åº”ç§»é™¤ä¸‹åˆ—
+	// ä¸éœ€è¦çš„ç‰¹å®šåˆå§‹åŒ–ä¾‹ç¨‹
+	// æ›´æ”¹ç”¨äºå­˜å‚¨è®¾ç½®çš„æ³¨å†Œè¡¨é¡¹
+	// TODO: åº”é€‚å½“ä¿®æ”¹è¯¥å­—ç¬¦ä¸²ï¼Œ
+	// ä¾‹å¦‚ä¿®æ”¹ä¸ºå…¬å¸æˆ–ç»„ç»‡å
 	SetRegistryKey(_T(""));
-	LoadStdProfileSettings();  // ¼ÓÔØ±ê×¼ INI ÎÄ¼şÑ¡Ïî(°üÀ¨ MRU)
+	LoadStdProfileSettings();  // åŠ è½½æ ‡å‡† INI æ–‡ä»¶é€‰é¡¹(åŒ…æ‹¬ MRU)
 	SetRegistryBase(_T("Settings"));
 	CPaintManagerUI::LoadPlugin(_T("mgyUI_Plugin.dll"));
 
@@ -88,18 +88,18 @@ BOOL CUIDesignerApp::InitInstance()
 	theApp.GetTooltipManager()->SetTooltipParams(AFX_TOOLTIP_TYPE_ALL,
 		RUNTIME_CLASS(CMFCToolTipCtrl), &ttParams);
 
-	// ×¢²áÓ¦ÓÃ³ÌĞòµÄÎÄµµÄ£°å¡£ÎÄµµÄ£°å
-	// ½«ÓÃ×÷ÎÄµµ¡¢¿ò¼Ü´°¿ÚºÍÊÓÍ¼Ö®¼äµÄÁ¬½Ó
+	// æ³¨å†Œåº”ç”¨ç¨‹åºçš„æ–‡æ¡£æ¨¡æ¿ã€‚æ–‡æ¡£æ¨¡æ¿
+	// å°†ç”¨ä½œæ–‡æ¡£ã€æ¡†æ¶çª—å£å’Œè§†å›¾ä¹‹é—´çš„è¿æ¥
 
 	m_pUIDocTemplate = new CMultiDocTemplate(IDR_UIDESIGNER,
 		RUNTIME_CLASS(CUIDesignerDoc),
-		RUNTIME_CLASS(CChildFrame), // ×Ô¶¨Òå MDI ×Ó¿ò¼Ü
+		RUNTIME_CLASS(CChildFrame), // è‡ªå®šä¹‰ MDI å­æ¡†æ¶
 		RUNTIME_CLASS(CUIDesignerView));
 	if (!m_pUIDocTemplate)
 		return FALSE;
 	AddDocTemplate(m_pUIDocTemplate);
 
-	// ´´½¨Ö÷ MDI ¿ò¼Ü´°¿Ú
+	// åˆ›å»ºä¸» MDI æ¡†æ¶çª—å£
 	CMainFrame* pMainFrame = new CMainFrame;
 	if (!pMainFrame || !pMainFrame->LoadFrame(IDR_MAINFRAME))
 	{
@@ -108,16 +108,16 @@ BOOL CUIDesignerApp::InitInstance()
 	}
 	m_pMainWnd = pMainFrame;
 	m_pMainWnd->SetWindowText(_T("Dui Designer"));
-	// ½öµ±¾ßÓĞºó×ºÊ±²Åµ÷ÓÃ DragAcceptFiles
-	//  ÔÚ MDI Ó¦ÓÃ³ÌĞòÖĞ£¬ÕâÓ¦ÔÚÉèÖÃ m_pMainWnd Ö®ºóÁ¢¼´·¢Éú
-	// ÆôÓÃÍÏ/·Å
+	// ä»…å½“å…·æœ‰åç¼€æ—¶æ‰è°ƒç”¨ DragAcceptFiles
+	//  åœ¨ MDI åº”ç”¨ç¨‹åºä¸­ï¼Œè¿™åº”åœ¨è®¾ç½® m_pMainWnd ä¹‹åç«‹å³å‘ç”Ÿ
+	// å¯ç”¨æ‹–/æ”¾
 	m_pMainWnd->DragAcceptFiles();
 
-	// ÆôÓÃ¡°DDE Ö´ĞĞ¡±
+	// å¯ç”¨â€œDDE æ‰§è¡Œâ€
 	EnableShellOpen();
 	RegisterShellFileTypes(TRUE);
 
-	// Ö÷´°¿ÚÒÑ³õÊ¼»¯£¬Òò´ËÏÔÊ¾Ëü²¢¶ÔÆä½øĞĞ¸üĞÂ
+	// ä¸»çª—å£å·²åˆå§‹åŒ–ï¼Œå› æ­¤æ˜¾ç¤ºå®ƒå¹¶å¯¹å…¶è¿›è¡Œæ›´æ–°
 	pMainFrame->ShowWindow(SW_SHOWMAXIMIZED);
 	pMainFrame->UpdateWindow();
 
@@ -126,20 +126,20 @@ BOOL CUIDesignerApp::InitInstance()
 
 
 
-// ÓÃÓÚÓ¦ÓÃ³ÌĞò¡°¹ØÓÚ¡±²Ëµ¥ÏîµÄ CAboutDlg ¶Ô»°¿ò
+// ç”¨äºåº”ç”¨ç¨‹åºâ€œå…³äºâ€èœå•é¡¹çš„ CAboutDlg å¯¹è¯æ¡†
 
 class CAboutDlg : public CDialog
 {
 public:
 	CAboutDlg();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_ABOUTBOX };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
-// ÊµÏÖ
+// å®ç°
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
@@ -167,22 +167,22 @@ BOOL CAboutDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO:  ÔÚ´ËÌí¼Ó¶îÍâµÄ³õÊ¼»¯
+	// TODO:  åœ¨æ­¤æ·»åŠ é¢å¤–çš„åˆå§‹åŒ–
 	this->GetDlgItem(IDC_STATIC_CURRENT_VERSION)->SetWindowText(UIDESIGNER_VERSION);
 	m_btnMyBlogURL.SetURL(_T("http://www.taxue.org/"));
-	m_btnMyBlogURL.SetTooltip(_T("Ì¤Ñ©Á÷ÔÆµÄ²©¿Í"));
+	m_btnMyBlogURL.SetTooltip(_T("è¸é›ªæµäº‘çš„åšå®¢"));
 	m_btnMyBlogURL.SizeToContent();
 	m_btnDuiLibURL.SetURL(_T("http://code.google.com/p/duilib/"));
-	m_btnDuiLibURL.SetTooltip(_T("DuiLib¿ªÔ´ÏîÄ¿"));
+	m_btnDuiLibURL.SetTooltip(_T("DuiLibå¼€æºé¡¹ç›®"));
 	m_btnDuiLibURL.SizeToContent();
 
 	return TRUE;  // return TRUE unless you set the focus to a control
-	// Òì³£: OCX ÊôĞÔÒ³Ó¦·µ»Ø FALSE
+	// å¼‚å¸¸: OCX å±æ€§é¡µåº”è¿”å› FALSE
 }
 
 void CUIDesignerApp::OnFileNew()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ å‘½ä»¤å¤„ç†ç¨‹åºä»£ç 
 	ASSERT(m_pUIDocTemplate);
 
 	CDocument* pDoc = m_pUIDocTemplate->OpenDocumentFile(NULL);
@@ -197,14 +197,14 @@ void CUIDesignerApp::OnFileNew()
 	}
 }
 
-// ÓÃÓÚÔËĞĞ¶Ô»°¿òµÄÓ¦ÓÃ³ÌĞòÃüÁî
+// ç”¨äºè¿è¡Œå¯¹è¯æ¡†çš„åº”ç”¨ç¨‹åºå‘½ä»¤
 void CUIDesignerApp::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
 
-// CUIDesignerApp ×Ô¶¨Òå¼ÓÔØ/±£´æ·½·¨
+// CUIDesignerApp è‡ªå®šä¹‰åŠ è½½/ä¿å­˜æ–¹æ³•
 
 void CUIDesignerApp::PreLoadState()
 {
@@ -230,11 +230,11 @@ void CUIDesignerApp::SaveCustomState()
 }
 
 //////////////////////////////////////////////////////////////////////////
-// CUIDesignerApp ÏûÏ¢´¦Àí³ÌĞò
+// CUIDesignerApp æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 int CUIDesignerApp::ExitInstance()
 {
-	// TODO: ÔÚ´ËÌí¼Ó×¨ÓÃ´úÂëºÍ/»òµ÷ÓÃ»ùÀà
+	// TODO: åœ¨æ­¤æ·»åŠ ä¸“ç”¨ä»£ç å’Œ/æˆ–è°ƒç”¨åŸºç±»
 
 	return CWinAppEx::ExitInstance();
 }

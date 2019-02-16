@@ -1,4 +1,4 @@
-// DialogProjectNew.cpp : ÊµÏÖÎÄ¼ş
+ï»¿// DialogProjectNew.cpp : å®ç°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -6,7 +6,7 @@
 #include "DialogProjectNew.h"
 
 
-// CDialogProjectNew ¶Ô»°¿ò
+// CDialogProjectNew å¯¹è¯æ¡†
 
 IMPLEMENT_DYNAMIC(CDialogProjectNew, CDialog)
 
@@ -36,11 +36,11 @@ BEGIN_MESSAGE_MAP(CDialogProjectNew, CDialog)
 END_MESSAGE_MAP()
 
 
-// CDialogProjectNew ÏûÏ¢´¦Àí³ÌĞò
+// CDialogProjectNew æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 void CDialogProjectNew::OnBnClickedButtonBrowse()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	UpdateData(TRUE);
 
 	BROWSEINFO info;
@@ -48,7 +48,7 @@ void CDialogProjectNew::OnBnClickedButtonBrowse()
 	_tcscpy(szDefaultDir,m_strPath);
 	ZeroMemory(&info, sizeof(BROWSEINFO));
 	info.hwndOwner = this->GetSafeHwnd();
-	info.lpszTitle = _T("ÇëÑ¡ÔñÒ»¸öÎÄ¼ş¼Ğ:");
+	info.lpszTitle = _T("è¯·é€‰æ‹©ä¸€ä¸ªæ–‡ä»¶å¤¹:");
 	info.ulFlags = BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE;
 	info.lpfn = BrowseCallbackProc;
 	info.lParam = long(&szDefaultDir);
@@ -90,22 +90,22 @@ int CALLBACK CDialogProjectNew::BrowseCallbackProc(HWND hwnd,UINT uMsg,LPARAM lP
 
 void CDialogProjectNew::OnBnClickedOk()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	UpdateData(TRUE);
 
 	if(m_strName.IsEmpty())
 	{
-		MessageBox(_T("ÏîÄ¿Ãû³Æ²»ÄÜÉèÖÃÎª¿Õ¡£"),_T("ÌáÊ¾"));
+		MessageBox(_T("é¡¹ç›®åç§°ä¸èƒ½è®¾ç½®ä¸ºç©ºã€‚"),_T("æç¤º"));
 		return;
 	}
 	if(m_strPath.IsEmpty())
 	{
-		MessageBox(_T("Â·¾¶Ãû³Æ²»ÄÜÉèÖÃÎª¿Õ¡£"),_T("ÌáÊ¾"));
+		MessageBox(_T("è·¯å¾„åç§°ä¸èƒ½è®¾ç½®ä¸ºç©ºã€‚"),_T("æç¤º"));
 		return;
 	}
 	if(!PathIsDirectory(m_strPath))
 	{
-		MessageBox(_T("ËùÉèÂ·¾¶ÒÑ²»´æÔÚ£¬¿ÉÄÜ±»ÒÆ³ı¡£"),_T("ÌáÊ¾"));
+		MessageBox(_T("æ‰€è®¾è·¯å¾„å·²ä¸å­˜åœ¨ï¼Œå¯èƒ½è¢«ç§»é™¤ã€‚"),_T("æç¤º"));
 		return;
 	}
 	if(m_strPath.Right(1) != _T("\\"))

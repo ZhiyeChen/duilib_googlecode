@@ -1,23 +1,23 @@
-#pragma once
+ï»¿#pragma once
 
-// CDialogSaveAsName ¶Ô»°¿ò
+// CDialogSaveAsName å¯¹è¯æ¡†
 
 class CDialogSaveAsName : public CDialog
 {
 	DECLARE_DYNAMIC(CDialogSaveAsName)
 
 public:
-	CDialogSaveAsName(CWnd* pParent = NULL);   // ±ê×¼¹¹Ôìº¯Êı
+	CDialogSaveAsName(CWnd* pParent = NULL);   // æ ‡å‡†æ„é€ å‡½æ•°
 	virtual ~CDialogSaveAsName();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_DIALOG__SAVE_AS_NAME };
 
 public:
 	CString GetSaveAsName() const { return m_strName; }
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
 	DECLARE_MESSAGE_MAP()
 private:

@@ -1,11 +1,11 @@
-// DialogUIAttribEdit.cpp : ÊµÏÖÎÄ¼ş
+ï»¿// DialogUIAttribEdit.cpp : å®ç°æ–‡ä»¶
 //
 #include "stdafx.h"
 #include "DuiDesigner.h"
 #include "DialogUIAttribEdit.h"
 
 
-// CDialogUIAttribEdit ¶Ô»°¿ò
+// CDialogUIAttribEdit å¯¹è¯æ¡†
 
 IMPLEMENT_DYNAMIC(CDialogUIAttribEdit, CDialog)
 
@@ -36,13 +36,13 @@ BEGIN_MESSAGE_MAP(CDialogUIAttribEdit, CDialog)
 END_MESSAGE_MAP()
 
 
-// CDialogUIAttribEdit ÏûÏ¢´¦Àí³ÌĞò
+// CDialogUIAttribEdit æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 BOOL CDialogUIAttribEdit::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO:  ÔÚ´ËÌí¼Ó¶îÍâµÄ³õÊ¼»¯
+	// TODO:  åœ¨æ­¤æ·»åŠ é¢å¤–çš„åˆå§‹åŒ–
 	CRect rectUIProp;
 	m_wndUIPropLocation.GetClientRect(&rectUIProp);
 	m_wndUIPropLocation.MapWindowPoints(this, &rectUIProp);
@@ -50,7 +50,7 @@ BOOL CDialogUIAttribEdit::OnInitDialog()
 	m_wndUIProperties.ShowProperty(m_pControl);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
-	// Òì³£: OCX ÊôĞÔÒ³Ó¦·µ»Ø FALSE
+	// å¼‚å¸¸: OCX å±æ€§é¡µåº”è¿”å› FALSE
 }
 
 LRESULT CDialogUIAttribEdit::OnUIPropChanged(WPARAM wp, LPARAM lp)

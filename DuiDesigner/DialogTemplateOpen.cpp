@@ -1,4 +1,4 @@
-// DialogTemplateOpen.cpp : ÊµÏÖÎÄ¼ş
+ï»¿// DialogTemplateOpen.cpp : å®ç°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -6,7 +6,7 @@
 #include "DialogTemplateOpen.h"
 
 
-// CDialogTemplateOpen ¶Ô»°¿ò
+// CDialogTemplateOpen å¯¹è¯æ¡†
 
 IMPLEMENT_DYNAMIC(CDialogTemplateOpen, CDialog)
 
@@ -35,13 +35,13 @@ BEGIN_MESSAGE_MAP(CDialogTemplateOpen, CDialog)
 END_MESSAGE_MAP()
 
 
-// CDialogTemplateOpen ÏûÏ¢´¦Àí³ÌĞò
+// CDialogTemplateOpen æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 BOOL CDialogTemplateOpen::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO:  ÔÚ´ËÌí¼Ó¶îÍâµÄ³õÊ¼»¯
+	// TODO:  åœ¨æ­¤æ·»åŠ é¢å¤–çš„åˆå§‹åŒ–
 	WIN32_FIND_DATA FindFileData = {0};
 	CString strFind = CGlobalVariable::GetTemplatesDir() + _T("*.*");
 	HANDLE hFind = ::FindFirstFile(strFind, &FindFileData);
@@ -63,12 +63,12 @@ BOOL CDialogTemplateOpen::OnInitDialog()
 	::FindClose(hFind);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
-	// Òì³£: OCX ÊôĞÔÒ³Ó¦·µ»Ø FALSE
+	// å¼‚å¸¸: OCX å±æ€§é¡µåº”è¿”å› FALSE
 }
 
 void CDialogTemplateOpen::OnLbnSelchangeListTemplates()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	CString strText;
 	int nIndex = m_lstTemplates.GetCurSel();
 	if(nIndex == -1)
@@ -82,7 +82,7 @@ void CDialogTemplateOpen::OnLbnSelchangeListTemplates()
 
 void CDialogTemplateOpen::OnBnClickedButtonTemplateDelete()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	CString strText;
 	int nIndex = m_lstTemplates.GetCurSel();
 	if(nIndex == -1)
@@ -111,7 +111,7 @@ void CDialogTemplateOpen::OnBnClickedButtonTemplateDelete()
 
 void CDialogTemplateOpen::OnBnClickedOk()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	CString strText;
 	int nIndex = m_lstTemplates.GetCurSel();
 	if(nIndex != -1)

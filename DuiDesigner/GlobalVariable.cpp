@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+﻿#include "StdAfx.h"
 #include "GlobalVariable.h"
 
 bool CGlobalVariable::m_bIsProjectExist = false;

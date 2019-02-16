@@ -1,4 +1,4 @@
-// UIDesignerView.cpp : CUIDesignerView ÀàµÄÊµÏÖ
+ï»¿// UIDesignerView.cpp : CUIDesignerView ç±»çš„å®ç°
 //
 
 #include "stdafx.h"
@@ -26,7 +26,7 @@ CLIPFORMAT CUIDesignerView::m_cfUI=(CLIPFORMAT)::RegisterClipboardFormat(_T("UID
 IMPLEMENT_DYNCREATE(CUIDesignerView, CScrollView)
 
 BEGIN_MESSAGE_MAP(CUIDesignerView, CScrollView)
-	// ±ê×¼´òÓ¡ÃüÁî
+	// æ ‡å‡†æ‰“å°å‘½ä»¤
 	ON_COMMAND(ID_FILE_PRINT, &CScrollView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CScrollView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CUIDesignerView::OnFilePrintPreview)
@@ -82,11 +82,11 @@ BEGIN_MESSAGE_MAP(CUIDesignerView, CScrollView)
 	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
-// CUIDesignerView ¹¹Ôì/Îö¹¹
+// CUIDesignerView æ„é€ /ææ„
 
 CUIDesignerView::CUIDesignerView()
 {
-	// TODO: ÔÚ´Ë´¦Ìí¼Ó¹¹Ôì´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ„é€ ä»£ç 
 	m_ptDPtoLP.x=0;
 	m_ptDPtoLP.y=0;
 	m_bInit=false;
@@ -99,13 +99,13 @@ CUIDesignerView::~CUIDesignerView()
 
 BOOL CUIDesignerView::PreCreateWindow(CREATESTRUCT& cs)
 {
-	// TODO: ÔÚ´Ë´¦Í¨¹ıĞŞ¸Ä
-	//  CREATESTRUCT cs À´ĞŞ¸Ä´°¿ÚÀà»òÑùÊ½
+	// TODO: åœ¨æ­¤å¤„é€šè¿‡ä¿®æ”¹
+	//  CREATESTRUCT cs æ¥ä¿®æ”¹çª—å£ç±»æˆ–æ ·å¼
 
 	return CScrollView::PreCreateWindow(cs);
 }
 
-// CUIDesignerView »æÖÆ
+// CUIDesignerView ç»˜åˆ¶
 
 void CUIDesignerView::OnDraw(CDC* pDrawDC)
 {
@@ -114,7 +114,7 @@ void CUIDesignerView::OnDraw(CDC* pDrawDC)
 	if (!pDoc)
 		return;
 
-	// TODO: ÔÚ´Ë´¦Îª±¾»úÊı¾İÌí¼Ó»æÖÆ´úÂë
+	// TODO: åœ¨æ­¤å¤„ä¸ºæœ¬æœºæ•°æ®æ·»åŠ ç»˜åˆ¶ä»£ç 
 	CMemDC memDC(*pDrawDC, this);
 	CDC* pDC = &memDC.GetDC();
 
@@ -160,7 +160,7 @@ void CUIDesignerView::OnDraw(CDC* pDrawDC)
 }
 
 
-// CUIDesignerView ´òÓ¡
+// CUIDesignerView æ‰“å°
 void CUIDesignerView::OnFilePrintPreview()
 {
 	AFXPrintPreview(this);
@@ -168,18 +168,18 @@ void CUIDesignerView::OnFilePrintPreview()
 
 BOOL CUIDesignerView::OnPreparePrinting(CPrintInfo* pInfo)
 {
-	// Ä¬ÈÏ×¼±¸
+	// é»˜è®¤å‡†å¤‡
 	return DoPreparePrinting(pInfo);
 }
 
 void CUIDesignerView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
-	// TODO: Ìí¼Ó¶îÍâµÄ´òÓ¡Ç°½øĞĞµÄ³õÊ¼»¯¹ı³Ì
+	// TODO: æ·»åŠ é¢å¤–çš„æ‰“å°å‰è¿›è¡Œçš„åˆå§‹åŒ–è¿‡ç¨‹
 }
 
 void CUIDesignerView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
-	// TODO: Ìí¼Ó´òÓ¡ºó½øĞĞµÄÇåÀí¹ı³Ì
+	// TODO: æ·»åŠ æ‰“å°åè¿›è¡Œçš„æ¸…ç†è¿‡ç¨‹
 }
 
 void CUIDesignerView::OnRButtonUp(UINT nFlags, CPoint point)
@@ -194,7 +194,7 @@ void CUIDesignerView::OnContextMenu(CWnd* pWnd, CPoint point)
 }
 
 
-// CUIDesignerView Õï¶Ï
+// CUIDesignerView è¯Šæ–­
 
 #ifdef _DEBUG
 void CUIDesignerView::AssertValid() const
@@ -207,7 +207,7 @@ void CUIDesignerView::Dump(CDumpContext& dc) const
 	CScrollView::Dump(dc);
 }
 
-CUIDesignerDoc* CUIDesignerView::GetDocument() const // ·Çµ÷ÊÔ°æ±¾ÊÇÄÚÁªµÄ
+CUIDesignerDoc* CUIDesignerView::GetDocument() const // éè°ƒè¯•ç‰ˆæœ¬æ˜¯å†…è”çš„
 {
 	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CUIDesignerDoc)));
 	return (CUIDesignerDoc*)m_pDocument;
@@ -215,7 +215,7 @@ CUIDesignerDoc* CUIDesignerView::GetDocument() const // ·Çµ÷ÊÔ°æ±¾ÊÇÄÚÁªµÄ
 #endif //_DEBUG
 
 
-// CUIDesignerView ÏûÏ¢´¦Àí³ÌĞò
+// CUIDesignerView æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 void CUIDesignerView::OnInitialUpdate()
 {
@@ -223,7 +223,7 @@ void CUIDesignerView::OnInitialUpdate()
 
 	m_brHatch.CreateHatchBrush(HS_DIAGCROSS, RGB(191, 191, 191));
 
-	// TODO: ÔÚ´ËÌí¼Ó×¨ÓÃ´úÂëºÍ/»òµ÷ÓÃ»ùÀà
+	// TODO: åœ¨æ­¤æ·»åŠ ä¸“ç”¨ä»£ç å’Œ/æˆ–è°ƒç”¨åŸºç±»
 	CUIDesignerDoc* pDoc=GetDocument();
 
 	m_LayoutManager.Init(this->GetSafeHwnd(),pDoc->GetPathName());
@@ -249,7 +249,7 @@ void CUIDesignerView::OnInitialUpdate()
 
 void CUIDesignerView::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: åœ¨æ­¤æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç å’Œ/æˆ–è°ƒç”¨é»˜è®¤å€¼
 	CClientDC dc(this);
 	OnPrepareDC(&dc);//Device coordinates to Logical coordinates
 	dc.SetWindowOrg(-FORM_OFFSET_X,-FORM_OFFSET_Y);//Logical coordinates to Form coordinates
@@ -323,7 +323,7 @@ void CUIDesignerView::OnLButtonDown(UINT nFlags, CPoint point)
 
 BOOL CUIDesignerView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: åœ¨æ­¤æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç å’Œ/æˆ–è°ƒç”¨é»˜è®¤å€¼
 	CPoint point;
 	GetCursorPos(&point);
 	this->ScreenToClient(&point);
@@ -340,7 +340,7 @@ void CUIDesignerView::OnSize(UINT nType, int cx, int cy)
 {
 	__super::OnSize(nType, cx, cy);
 
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
 	if(m_bInit==false)
 		return;
 
@@ -353,7 +353,7 @@ void CUIDesignerView::OnSize(UINT nType, int cx, int cy)
 
 void CUIDesignerView::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: åœ¨æ­¤æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç å’Œ/æˆ–è°ƒç”¨é»˜è®¤å€¼
 	UpDateDPtoLPOffset();
 	this->Invalidate(FALSE);
 	__super::OnHScroll(nSBCode, nPos, pScrollBar);
@@ -361,7 +361,7 @@ void CUIDesignerView::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 void CUIDesignerView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: åœ¨æ­¤æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç å’Œ/æˆ–è°ƒç”¨é»˜è®¤å€¼
 	UpDateDPtoLPOffset();
 	this->Invalidate(FALSE);
 	__super::OnVScroll(nSBCode, nPos, pScrollBar);
@@ -465,14 +465,14 @@ void CUIDesignerView::UpDateDPtoLPOffset()
 }
 BOOL CUIDesignerView::OnEraseBkgnd(CDC* pDC)
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: åœ¨æ­¤æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç å’Œ/æˆ–è°ƒç”¨é»˜è®¤å€¼
 
 	return TRUE;
 }
 
 void CUIDesignerView::OnMouseMove(UINT nFlags, CPoint point)
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: åœ¨æ­¤æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç å’Œ/æˆ–è°ƒç”¨é»˜è®¤å€¼
 	UpDateDPtoLPOffset();
 
 	__super::OnMouseMove(nFlags, point);
@@ -606,7 +606,7 @@ void CUIDesignerView::OnFormEditTest()
 	TCHAR szFileName[MAX_PATH];
 	CString strFilePath=GetDocument()->GetPathName();
 	strFilePath=strFilePath.Mid(0,strFilePath.ReverseFind(_T('\\'))+1);
-	// ÔÚÔ­XMLÎÄ¼şÄ¿Â¼ÖĞ´´½¨ÁÙÊ±ÎÄ¼şÓÃÓÚÔ¤ÀÀ
+	// åœ¨åŸXMLæ–‡ä»¶ç›®å½•ä¸­åˆ›å»ºä¸´æ—¶æ–‡ä»¶ç”¨äºé¢„è§ˆ
 	::GetTempFileName(strFilePath, _T("Dui"), 0, szFileName);
 
 	this->SaveSkinFile(szFileName);
@@ -850,7 +850,7 @@ void CUIDesignerView::OnDestroy()
 {
 	__super::OnDestroy();
 
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
 	g_pClassView->RemoveUITreeItem(m_LayoutManager.GetForm());
 	g_pResourceView->RemoveImageTree(this->GetDocument()->GetTitle());
 	g_pPropertiesWnd->ShowProperty(NULL);
@@ -1134,7 +1134,7 @@ void CUIDesignerView::SaveSkinFile(LPCTSTR pstrPathName)
 {
 	if(!m_LayoutManager.SaveSkinFile(pstrPathName))
 	{
-		MessageBox(_T("±£´æXMLÎÄ¼şÊ§°Ü!"),_T("´íÎó"),MB_OK);
+		MessageBox(_T("ä¿å­˜XMLæ–‡ä»¶å¤±è´¥!"),_T("é”™è¯¯"),MB_OK);
 	}
 	g_pResourceView->CopyImageToSkinDir(m_LayoutManager.GetSkinDir(), this->GetDocument()->GetTitle());
 }
@@ -1162,7 +1162,7 @@ void CUIDesignerView::RedoUI(CControlUI* pControl, CControlUI* pParent)
 
 void CUIDesignerView::OnTemplateSaveAs()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ å‘½ä»¤å¤„ç†ç¨‹åºä»£ç 
 	CDialogSaveAsName dlg;
 	if(dlg.DoModal() != IDOK)
 		return;

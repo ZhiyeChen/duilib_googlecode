@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "MainFrm.h"
 #include "FileView.h"
 #include "Resource.h"
@@ -30,7 +30,7 @@ BEGIN_MESSAGE_MAP(CFileViewTree, CTreeCtrl)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CFileViewTree ÏûÏ¢´¦Àí³ÌĞò
+// CFileViewTree æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 BOOL CFileViewTree::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {
@@ -49,7 +49,7 @@ BOOL CFileViewTree::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 
 void CFileViewTree::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	*pResult = 0;
 	g_pFileView->OpenSkinFile(GetSelectedItem());
 }
@@ -107,7 +107,7 @@ BEGIN_MESSAGE_MAP(CFileView, CDockablePane)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CWorkspaceBar ÏûÏ¢´¦Àí³ÌĞò
+// CWorkspaceBar æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 int CFileView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
@@ -117,21 +117,21 @@ int CFileView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CRect rectDummy;
 	rectDummy.SetRectEmpty();
 
-	// ´´½¨ÊÓÍ¼:
+	// åˆ›å»ºè§†å›¾:
 	const DWORD dwViewStyle = WS_CHILD | WS_VISIBLE | TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS | TVS_EDITLABELS;
 
 	if (!m_wndFileView.Create(dwViewStyle, rectDummy, this, 4))
 	{
-		TRACE0("Î´ÄÜ´´½¨ÎÄ¼şÊÓÍ¼\n");
-		return -1;      // Î´ÄÜ´´½¨
+		TRACE0("æœªèƒ½åˆ›å»ºæ–‡ä»¶è§†å›¾\n");
+		return -1;      // æœªèƒ½åˆ›å»º
 	}
 
-	// ¼ÓÔØÊÓÍ¼Í¼Ïñ:
+	// åŠ è½½è§†å›¾å›¾åƒ:
 	m_FileViewImages.Create(IDB_FILE_VIEW, 16, 0, RGB(255, 0, 255));
 	m_wndFileView.SetImageList(&m_FileViewImages, TVSIL_NORMAL);
 
 	m_wndToolBar.Create(this, AFX_DEFAULT_TOOLBAR_STYLE, IDR_PROJECT_EXPLORER);
-	m_wndToolBar.LoadToolBar(IDR_PROJECT_EXPLORER, 0, 0, TRUE /* ÒÑËø¶¨*/);
+	m_wndToolBar.LoadToolBar(IDR_PROJECT_EXPLORER, 0, 0, TRUE /* å·²é”å®š*/);
 
 	OnChangeVisualStyle();
 
@@ -141,10 +141,10 @@ int CFileView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_wndToolBar.SetOwner(this);
 
-	// ËùÓĞÃüÁî½«Í¨¹ı´Ë¿Ø¼şÂ·ÓÉ£¬¶ø²»ÊÇÍ¨¹ıÖ÷¿ò¼ÜÂ·ÓÉ:
+	// æ‰€æœ‰å‘½ä»¤å°†é€šè¿‡æ­¤æ§ä»¶è·¯ç”±ï¼Œè€Œä¸æ˜¯é€šè¿‡ä¸»æ¡†æ¶è·¯ç”±:
 	m_wndToolBar.SetRouteCommandsViaFrame(FALSE);
 
-	// ÌîÈëÒ»Ğ©¾²Ì¬Ê÷ÊÓÍ¼Êı¾İ(´Ë´¦Ö»ĞèÌîÈëĞéÄâ´úÂë£¬¶ø²»ÊÇ¸´ÔÓµÄÊı¾İ)
+	// å¡«å…¥ä¸€äº›é™æ€æ ‘è§†å›¾æ•°æ®(æ­¤å¤„åªéœ€å¡«å…¥è™šæ‹Ÿä»£ç ï¼Œè€Œä¸æ˜¯å¤æ‚çš„æ•°æ®)
 	AdjustLayout();
 
 	return 0;
@@ -169,7 +169,7 @@ void CFileView::OnContextMenu(CWnd* pWnd, CPoint point)
 
 	if (point != CPoint(-1, -1))
 	{
-		// Ñ¡ÔñÒÑµ¥»÷µÄÏî:
+		// é€‰æ‹©å·²å•å‡»çš„é¡¹:
 		CPoint ptTree = point;
 		pWndTree->ScreenToClient(&ptTree);
 
@@ -235,7 +235,7 @@ void CFileView::OnProjectClose()
 void CFileView::OnProjectOpen()
 {
 	CFileDialog dlg(TRUE, _T(""), NULL,OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT
-		, _T("ÏîÄ¿ÎÄ¼ş(*.uiproj)|*.uiproj|ËùÓĞÎÄ¼ş(*.*)|*.*||"));
+		, _T("é¡¹ç›®æ–‡ä»¶(*.uiproj)|*.uiproj|æ‰€æœ‰æ–‡ä»¶(*.*)|*.*||"));
 	if(dlg.DoModal() == IDOK)
 	{
 		if(CGlobalVariable::m_bIsProjectExist)
@@ -376,16 +376,16 @@ void CFileView::OnFileDelete()
 	DWORD dwInfo = m_wndFileView.GetItemData(hSelectedItem);
 	if(dwInfo == INFO_FILE)
 	{
-		if(MessageBox(_T("ÄúÈ·¶¨É¾³ı´ËÎÄ¼ş£¿\nµã»÷¡°ÊÇ¡±£¬È·ÈÏÉ¾³ı£¬¡°·ñ¡±È¡ÏûÉ¾³ı¡£"),
-			_T("¾¯¸æ"), MB_YESNO | MB_ICONWARNING) == IDNO)
+		if(MessageBox(_T("æ‚¨ç¡®å®šåˆ é™¤æ­¤æ–‡ä»¶ï¼Ÿ\nç‚¹å‡»â€œæ˜¯â€ï¼Œç¡®è®¤åˆ é™¤ï¼Œâ€œå¦â€å–æ¶ˆåˆ é™¤ã€‚"),
+			_T("è­¦å‘Š"), MB_YESNO | MB_ICONWARNING) == IDNO)
 			return;
 
 		DeleteSkinFile(hSelectedItem);
 	}
 	else if(dwInfo == INFO_DIRECTORY)
 	{
-		if(MessageBox(_T("ÄúÈ·¶¨¸ÃÄ¿Â¼ÖĞµÄËùÓĞÄÚÈİ£¬É¾³ıºó½«ÎŞ·¨»Ö¸´£¿\nµã»÷¡°ÊÇ¡±£¬È·ÈÏÉ¾³ı£¬¡°·ñ¡±È¡ÏûÉ¾³ı¡£"),
-			_T("¾¯¸æ"), MB_YESNO | MB_ICONWARNING) == IDNO)
+		if(MessageBox(_T("æ‚¨ç¡®å®šè¯¥ç›®å½•ä¸­çš„æ‰€æœ‰å†…å®¹ï¼Œåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼Ÿ\nç‚¹å‡»â€œæ˜¯â€ï¼Œç¡®è®¤åˆ é™¤ï¼Œâ€œå¦â€å–æ¶ˆåˆ é™¤ã€‚"),
+			_T("è­¦å‘Š"), MB_YESNO | MB_ICONWARNING) == IDNO)
 			return;
 
 		DeleteDirectory(hSelectedItem);
@@ -482,14 +482,14 @@ BOOL CFileView::CloseSkinFile(CString& strPath)
 
 void CFileView::OnFileOpen()
 {
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ å‘½ä»¤å¤„ç†ç¨‹åºä»£ç 
 	HTREEITEM hSelectedItem = m_wndFileView.GetSelectedItem();
 	OpenSkinFile(hSelectedItem);
 }
 
 void CFileView::OnPaint()
 {
-	CPaintDC dc(this); // ÓÃÓÚ»æÖÆµÄÉè±¸ÉÏÏÂÎÄ
+	CPaintDC dc(this); // ç”¨äºç»˜åˆ¶çš„è®¾å¤‡ä¸Šä¸‹æ–‡
 
 	CRect rectTree;
 	m_wndFileView.GetWindowRect(rectTree);
@@ -509,7 +509,7 @@ void CFileView::OnSetFocus(CWnd* pOldWnd)
 void CFileView::OnChangeVisualStyle()
 {
 	m_wndToolBar.CleanUpLockedImages();
-	m_wndToolBar.LoadBitmap(theApp.m_bHiColorIcons ? IDB_PROJECT_EXPLORER_24 : IDR_PROJECT_EXPLORER, 0, 0, TRUE /* Ëø¶¨ */);
+	m_wndToolBar.LoadBitmap(theApp.m_bHiColorIcons ? IDB_PROJECT_EXPLORER_24 : IDR_PROJECT_EXPLORER, 0, 0, TRUE /* é”å®š */);
 
 	m_FileViewImages.DeleteImageList();
 
@@ -518,7 +518,7 @@ void CFileView::OnChangeVisualStyle()
 	CBitmap bmp;
 	if (!bmp.LoadBitmap(uiBmpId))
 	{
-		TRACE(_T("ÎŞ·¨¼ÓÔØÎ»Í¼: %x\n"), uiBmpId);
+		TRACE(_T("æ— æ³•åŠ è½½ä½å›¾: %x\n"), uiBmpId);
 		ASSERT(FALSE);
 		return;
 	}
@@ -538,14 +538,14 @@ void CFileView::OnChangeVisualStyle()
 
 void CFileView::OnDirectoryNew()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ å‘½ä»¤å¤„ç†ç¨‹åºä»£ç 
 	HTREEITEM hSelectedItem = m_wndFileView.GetSelectedItem();
 	DWORD dwInfo = m_wndFileView.GetItemData(hSelectedItem);
 	HTREEITEM hParent = (dwInfo != INFO_FILE) ? hSelectedItem:m_wndFileView.GetParentItem(hSelectedItem);
 	int nCount = 2;
-	CString strDirName = _T("ĞÂ½¨ÎÄ¼ş¼Ğ");
+	CString strDirName = _T("æ–°å»ºæ–‡ä»¶å¤¹");
 	while(FindDirectory(strDirName, hParent))
-		strDirName.Format(_T("ĞÂ½¨ÎÄ¼ş¼Ğ(%d)"), nCount++);
+		strDirName.Format(_T("æ–°å»ºæ–‡ä»¶å¤¹(%d)"), nCount++);
 
 	HTREEITEM hNewItem = m_wndFileView.InsertItem(strDirName, 1, 1, hParent);
 	m_wndFileView.SetItemData(hNewItem, INFO_DIRECTORY);
@@ -556,21 +556,21 @@ void CFileView::OnDirectoryNew()
 
 void CFileView::OnCreateCopy()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ å‘½ä»¤å¤„ç†ç¨‹åºä»£ç 
 	HTREEITEM hSelectedItem = m_wndFileView.GetSelectedItem();
 	if(m_wndFileView.GetItemData(hSelectedItem) != INFO_FILE)
 		return;
 
 	CString strFileName= m_wndFileView.GetItemText(hSelectedItem);
 	CString strNewFileName = strFileName;
-	strNewFileName.Insert(0, _T("¸´¼ş "));
+	strNewFileName.Insert(0, _T("å¤ä»¶ "));
 	int nCount = 0;
 	while(!CopyFile(CGlobalVariable::m_strProjectPath + strFileName,
 		CGlobalVariable::m_strProjectPath + strNewFileName, TRUE))
 	{
 		strNewFileName = strFileName;
 		CString strCount;
-		strCount.Format(_T("¸´¼ş(%d) "), nCount++);
+		strCount.Format(_T("å¤ä»¶(%d) "), nCount++);
 		strNewFileName.Insert(0, strCount);
 	}
 	HTREEITEM hParent  = m_wndFileView.GetParentItem(hSelectedItem);
@@ -580,7 +580,7 @@ void CFileView::OnCreateCopy()
 
 void CFileView::OnFileRename()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ å‘½ä»¤å¤„ç†ç¨‹åºä»£ç 
 	HTREEITEM hSelectedItem = m_wndFileView.GetSelectedItem();
 	m_wndFileView.EditLabel(hSelectedItem);
 }
@@ -593,13 +593,13 @@ BOOL CFileView::RenameFile(CString strNewName, HTREEITEM hItem)
 	{
 		if(FindSkinFile(CGlobalVariable::m_strProjectPath + strOldName))
 		{
-			MessageBox(_T("´ËÎÄ¼şÕı´¦ÓÚ´ò¿ª×´Ì¬£¬ÇëÏÈ¹Ø±ÕºóÔÙ½øĞĞÖØÃüÃû¡£"), _T("ÌáÊ¾"), MB_ICONINFORMATION);
+			MessageBox(_T("æ­¤æ–‡ä»¶æ­£å¤„äºæ‰“å¼€çŠ¶æ€ï¼Œè¯·å…ˆå…³é—­åå†è¿›è¡Œé‡å‘½åã€‚"), _T("æç¤º"), MB_ICONINFORMATION);
 			return FALSE;
 		}
 		if(!MoveFile(CGlobalVariable::m_strProjectPath + strOldName
 			, CGlobalVariable::m_strProjectPath + strNewName))
 		{
-			MessageBox(_T("´ËÎÄ¼şÒÑ¾­´æÔÚ£¬²»ÄÜÖØ¸´ÃüÃû¡£"), _T("ÌáÊ¾"), MB_ICONINFORMATION);
+			MessageBox(_T("æ­¤æ–‡ä»¶å·²ç»å­˜åœ¨ï¼Œä¸èƒ½é‡å¤å‘½åã€‚"), _T("æç¤º"), MB_ICONINFORMATION);
 			return FALSE;
 		}
 	}
@@ -607,7 +607,7 @@ BOOL CFileView::RenameFile(CString strNewName, HTREEITEM hItem)
 	{
 		if(FindDirectory(strNewName, m_wndFileView.GetParentItem(hItem)))
 		{
-			MessageBox(_T("´ËÄ¿Â¼ÒÑ¾­´æÔÚ£¬²»ÄÜÖØ¸´ÃüÃû¡£"), _T("ÌáÊ¾"), MB_ICONINFORMATION);
+			MessageBox(_T("æ­¤ç›®å½•å·²ç»å­˜åœ¨ï¼Œä¸èƒ½é‡å¤å‘½åã€‚"), _T("æç¤º"), MB_ICONINFORMATION);
 			return FALSE;
 		}
 	}
@@ -617,13 +617,13 @@ BOOL CFileView::RenameFile(CString strNewName, HTREEITEM hItem)
 
 void CFileView::OnTreeCollapse()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ å‘½ä»¤å¤„ç†ç¨‹åºä»£ç 
 	ExpandFileViewTree(m_wndFileView.GetRootItem(), TVE_COLLAPSE);
 }
 
 void CFileView::OnTreeExpand()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ å‘½ä»¤å¤„ç†ç¨‹åºä»£ç 
 	ExpandFileViewTree(m_wndFileView.GetRootItem(), TVE_EXPAND);
 }
 
@@ -641,6 +641,6 @@ void CFileView::OnDestroy()
 {
 	CDockablePane::OnDestroy();
 
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
 	SaveProject();
 }

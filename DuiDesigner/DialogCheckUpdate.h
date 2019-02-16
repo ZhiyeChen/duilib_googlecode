@@ -1,17 +1,17 @@
-#pragma once
+ï»¿#pragma once
 
 
-// CDialogCheckUpdate ¶Ô»°¿ò
+// CDialogCheckUpdate å¯¹è¯æ¡†
 
 class CDialogCheckUpdate : public CDialog
 {
 	DECLARE_DYNAMIC(CDialogCheckUpdate)
 
 public:
-	CDialogCheckUpdate(CWnd* pParent = NULL);   // ±ê×¼¹¹Ôìº¯Êı
+	CDialogCheckUpdate(CWnd* pParent = NULL);   // æ ‡å‡†æ„é€ å‡½æ•°
 	virtual ~CDialogCheckUpdate();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_DIALOG_CHECK_UPDATE };
 
 protected:
@@ -21,7 +21,7 @@ private:
 	CMFCLinkCtrl m_btnUpdateURL;
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
 	DECLARE_MESSAGE_MAP()
 public:

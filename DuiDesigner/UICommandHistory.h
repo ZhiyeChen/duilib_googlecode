@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "UIDesignerView.h"
 #include "tinyxml.h"
 #include "..\DuiLib\UIlib.h"

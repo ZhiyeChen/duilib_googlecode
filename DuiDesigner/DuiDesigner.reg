@@ -1,15 +1,15 @@
-REGEDIT
-; ´Ë .REG ÎÄ¼ş¿ÉÄÜÓÉ SETUP ³ÌĞòÊ¹ÓÃ¡£
-;   Èç¹û SETUP ³ÌĞò²»¿ÉÓÃ£¬Ôòµ÷ÓÃ
-;   CWinApp::RegisterShellFileTypes ºÍ COleObjectFactory::UpdateRegistryAll
-;   ÔÚ InitInstance ÖĞ¶ÔÏÂÁĞÏî×Ô¶¯½øĞĞ×¢²á¡£
+ï»¿REGEDIT
+; æ­¤ .REG æ–‡ä»¶å¯èƒ½ç”± SETUP ç¨‹åºä½¿ç”¨ã€‚
+;   å¦‚æœ SETUP ç¨‹åºä¸å¯ç”¨ï¼Œåˆ™è°ƒç”¨
+;   CWinApp::RegisterShellFileTypes å’Œ COleObjectFactory::UpdateRegistryAll
+;   åœ¨ InitInstance ä¸­å¯¹ä¸‹åˆ—é¡¹è‡ªåŠ¨è¿›è¡Œæ³¨å†Œã€‚
 
 HKEY_CLASSES_ROOT\.xml = UIDesigner.Document
 HKEY_CLASSES_ROOT\UIDesigner.Document\shell\open\command = UIDesigner.EXE %1
 HKEY_CLASSES_ROOT\UIDesigner.Document\shell\open\ddeexec = [open("%1")]
 HKEY_CLASSES_ROOT\UIDesigner.Document\shell\open\ddeexec\application = UIDesigner
-    ; ×¢Òâ: ´ËÓ¦ÓÃ³ÌĞòÊÇ¿ÉÑ¡µÄ
-    ;  (Ä¬ÈÏÎª¡°ÃüÁî¡±ÖĞµÄÓ¦ÓÃ³ÌĞòÃû)
+    ; æ³¨æ„: æ­¤åº”ç”¨ç¨‹åºæ˜¯å¯é€‰çš„
+    ;  (é»˜è®¤ä¸ºâ€œå‘½ä»¤â€ä¸­çš„åº”ç”¨ç¨‹åºå)
 
 HKEY_CLASSES_ROOT\UIDesigner.Document = UIDesigner.Document
 

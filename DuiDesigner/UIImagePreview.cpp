@@ -1,4 +1,4 @@
-// UIImagePreview.cpp : ÊµÏÖÎÄ¼ş
+ï»¿// UIImagePreview.cpp : å®ç°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -25,13 +25,13 @@ BEGIN_MESSAGE_MAP(CUIImagePreview, CStatic)
 END_MESSAGE_MAP()
 
 
-// CUIImagePreview ÏûÏ¢´¦Àí³ÌĞò
+// CUIImagePreview æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 void CUIImagePreview::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
-	// ²»Îª»æÍ¼ÏûÏ¢µ÷ÓÃ CStatic::OnPaint()
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
+	// ä¸ä¸ºç»˜å›¾æ¶ˆæ¯è°ƒç”¨ CStatic::OnPaint()
 	CMemDC memDC(dc, this);
 	CDC* pDC = &memDC.GetDC();
 

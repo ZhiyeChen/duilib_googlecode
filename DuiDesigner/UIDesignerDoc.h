@@ -1,5 +1,5 @@
-
-// UIDesignerDoc.h : CUIDesignerDoc ÀàµÄ½Ó¿Ú
+ï»¿
+// UIDesignerDoc.h : CUIDesignerDoc ç±»çš„æ¥å£
 //
 
 
@@ -8,22 +8,22 @@
 
 class CUIDesignerDoc : public CDocument
 {
-protected: // ½ö´ÓĞòÁĞ»¯´´½¨
+protected: // ä»…ä»åºåˆ—åŒ–åˆ›å»º
 	CUIDesignerDoc();
 	DECLARE_DYNCREATE(CUIDesignerDoc)
 
-// ÊôĞÔ
+// å±æ€§
 public:
 
-// ²Ù×÷
+// æ“ä½œ
 public:
 
-// ÖØĞ´
+// é‡å†™
 public:
 	virtual BOOL OnNewDocument();
 	virtual void Serialize(CArchive& ar);
 
-// ÊµÏÖ
+// å®ç°
 public:
 	virtual ~CUIDesignerDoc();
 #ifdef _DEBUG
@@ -35,7 +35,7 @@ protected:
 	afx_msg void OnMdiCopyFullPath();
 	afx_msg void OnMdiOpenFullPath();
 
-// Éú³ÉµÄÏûÏ¢Ó³Éäº¯Êı
+// ç”Ÿæˆçš„æ¶ˆæ¯æ˜ å°„å‡½æ•°
 protected:
 	DECLARE_MESSAGE_MAP()
 public:

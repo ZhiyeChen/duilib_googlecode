@@ -1,4 +1,4 @@
-// DialogSaveAsName.cpp : ÊµÏÖÎÄ¼ş
+ï»¿// DialogSaveAsName.cpp : å®ç°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -6,13 +6,13 @@
 #include "DialogSaveAsName.h"
 
 
-// CDialogSaveAsName ¶Ô»°¿ò
+// CDialogSaveAsName å¯¹è¯æ¡†
 
 IMPLEMENT_DYNAMIC(CDialogSaveAsName, CDialog)
 
 CDialogSaveAsName::CDialogSaveAsName(CWnd* pParent /*=NULL*/)
 	: CDialog(CDialogSaveAsName::IDD, pParent)
-	, m_strName(_T("Î´ÃüÃû1"))
+	, m_strName(_T("æœªå‘½å1"))
 {
 
 }
@@ -32,4 +32,4 @@ BEGIN_MESSAGE_MAP(CDialogSaveAsName, CDialog)
 END_MESSAGE_MAP()
 
 
-// CDialogSaveAsName ÏûÏ¢´¦Àí³ÌĞò
+// CDialogSaveAsName æ¶ˆæ¯å¤„ç†ç¨‹åº

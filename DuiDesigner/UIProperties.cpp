@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "UIProperties.h"
 #include "DuiDesigner.h"
 
@@ -236,27 +236,27 @@ int CUIProperties::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CRect rectDummy;
 	rectDummy.SetRectEmpty();
 
-	// ´´½¨×éºÏ:
+	// åˆ›å»ºç»„åˆ:
 	const DWORD dwViewStyle = WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST | WS_BORDER | CBS_SORT | WS_CLIPSIBLINGS | WS_CLIPCHILDREN;
 
 	if(!m_wndPropList.Create(WS_VISIBLE | WS_CHILD, rectDummy, this, 2))
 	{
-		TRACE0("Î´ÄÜ´´½¨ÊôĞÔÍø¸ñ\n");
-		return -1;      // Î´ÄÜ´´½¨
+		TRACE0("æœªèƒ½åˆ›å»ºå±æ€§ç½‘æ ¼\n");
+		return -1;      // æœªèƒ½åˆ›å»º
 	}
 
 	InitPropList();
 
 	m_wndToolBar.Create(this, AFX_DEFAULT_TOOLBAR_STYLE, IDR_PROPERTIES);
-	m_wndToolBar.LoadToolBar(IDR_PROPERTIES, 0, 0, TRUE /* ÒÑËø¶¨*/);
+	m_wndToolBar.LoadToolBar(IDR_PROPERTIES, 0, 0, TRUE /* å·²é”å®š*/);
 	m_wndToolBar.CleanUpLockedImages();
-	m_wndToolBar.LoadBitmap(theApp.m_bHiColorIcons ? IDB_PROPERTIES_HC : IDR_PROPERTIES, 0, 0, TRUE /* Ëø¶¨*/);
+	m_wndToolBar.LoadBitmap(theApp.m_bHiColorIcons ? IDB_PROPERTIES_HC : IDR_PROPERTIES, 0, 0, TRUE /* é”å®š*/);
 
 	m_wndToolBar.SetPaneStyle(m_wndToolBar.GetPaneStyle() | CBRS_TOOLTIPS | CBRS_FLYBY);
 	m_wndToolBar.SetPaneStyle(m_wndToolBar.GetPaneStyle() & ~(CBRS_GRIPPER | CBRS_SIZE_DYNAMIC | CBRS_BORDER_TOP | CBRS_BORDER_BOTTOM | CBRS_BORDER_LEFT | CBRS_BORDER_RIGHT));
 	m_wndToolBar.SetOwner(this);
 
-	// ËùÓĞÃüÁî½«Í¨¹ı´Ë¿Ø¼şÂ·ÓÉ£¬¶ø²»ÊÇÍ¨¹ıÖ÷¿ò¼ÜÂ·ÓÉ:
+	// æ‰€æœ‰å‘½ä»¤å°†é€šè¿‡æ­¤æ§ä»¶è·¯ç”±ï¼Œè€Œä¸æ˜¯é€šè¿‡ä¸»æ¡†æ¶è·¯ç”±:
 	m_wndToolBar.SetRouteCommandsViaFrame(FALSE);
 
 	AdjustLayout();
@@ -351,102 +351,102 @@ void CUIProperties::InitPropList()
 	pPropUI=new CMFCPropertyGridProperty(_T("Window"),classWindow);
 
 	pValueList=new CMFCPropertyGridProperty(_T("Size"),tagWindowSize,TRUE);//size
-	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("´°ÌåµÄ¿í¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("çª—ä½“çš„å®½åº¦"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("´°ÌåµÄ¸ß¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("çª—ä½“çš„é«˜åº¦"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("Caption"),tagCaption,TRUE);//caption
-	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("±êÌâµÄLeftÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("æ ‡é¢˜çš„Leftä½ç½®"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("±êÌâµÄTopÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("æ ‡é¢˜çš„Topä½ç½®"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("±êÌâµÄRightÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("æ ‡é¢˜çš„Rightä½ç½®"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("±êÌâµÄBottomÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("æ ‡é¢˜çš„Bottomä½ç½®"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("SizeBox"),tagSizeBox,TRUE);//sizebox
-	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("³ß´çºĞµÄLeftÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("å°ºå¯¸ç›’çš„Leftä½ç½®"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("³ß´çºĞµÄTopÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("å°ºå¯¸ç›’çš„Topä½ç½®"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("³ß´çºĞµÄRightÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("å°ºå¯¸ç›’çš„Rightä½ç½®"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("³ß´çºĞµÄBottomÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("å°ºå¯¸ç›’çš„Bottomä½ç½®"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("RoundCorner"),tagRoundCorner,TRUE);//roundcorner
-	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("Ô²½ÇµÄ¿í¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("åœ†è§’çš„å®½åº¦"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("Ô²½ÇµÄ¸ß¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("åœ†è§’çš„é«˜åº¦"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("MinInfo"),tagMinInfo,TRUE);//mininfo
-	pProp=new CMFCPropertyGridProperty(_T("MinWidth"),(_variant_t)(LONG)0,_T("´°¿ÚµÄ×îĞ¡¸ú×Ù¿í¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("MinWidth"),(_variant_t)(LONG)0,_T("çª—å£çš„æœ€å°è·Ÿè¸ªå®½åº¦"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("MinHeight"),(_variant_t)(LONG)0,_T("´°¿ÚµÄ×îĞ¡¸ú×Ù¸ß¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("MinHeight"),(_variant_t)(LONG)0,_T("çª—å£çš„æœ€å°è·Ÿè¸ªé«˜åº¦"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("MaxInfo"),tagMinInfo,TRUE);//maxinfo
-	pProp=new CMFCPropertyGridProperty(_T("MaxWidth"),(_variant_t)(LONG)0,_T("´°¿ÚµÄ×î´ó¸ú×Ù¿í¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("MaxWidth"),(_variant_t)(LONG)0,_T("çª—å£çš„æœ€å¤§è·Ÿè¸ªå®½åº¦"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Maxeight"),(_variant_t)(LONG)0,_T("´°¿ÚµÄ×î´ó¸ú×Ù¸ß¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Maxeight"),(_variant_t)(LONG)0,_T("çª—å£çš„æœ€å¤§è·Ÿè¸ªé«˜åº¦"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
-	pProp=new CMFCPropertyGridProperty(_T("ShowDirty"),(_variant_t)false,_T("Ö¸Ê¾ÊÇ·ñÏÔÊ¾¸üĞÂÇøÓò"),tagShowDirty);//showdirty
+	pProp=new CMFCPropertyGridProperty(_T("ShowDirty"),(_variant_t)false,_T("æŒ‡ç¤ºæ˜¯å¦æ˜¾ç¤ºæ›´æ–°åŒºåŸŸ"),tagShowDirty);//showdirty
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridCustomFontsProperty(_T("CustomFonts"),(_variant_t)_T("×ÖÌå¹ÜÀí"),_T("¹ÜÀí×Ô¶¨ÒåµÄ×ÖÌå"),tagCustomFonts);//customfonts
+	pProp=new CMFCPropertyGridCustomFontsProperty(_T("CustomFonts"),(_variant_t)_T("å­—ä½“ç®¡ç†"),_T("ç®¡ç†è‡ªå®šä¹‰çš„å­—ä½“"),tagCustomFonts);//customfonts
 	pProp->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridDefaultAttribListProperty(_T("DefaultAttribList"),(_variant_t)_T("Ä¬ÈÏÊôĞÔÁĞ±í¹ÜÀí"),_T("¹ÜÀíÄ¬ÈÏµÄÊôĞÔÁĞ±í"),tagDefaultAttribList);//defaultattriblist
+	pProp=new CMFCPropertyGridDefaultAttribListProperty(_T("DefaultAttribList"),(_variant_t)_T("é»˜è®¤å±æ€§åˆ—è¡¨ç®¡ç†"),_T("ç®¡ç†é»˜è®¤çš„å±æ€§åˆ—è¡¨"),tagDefaultAttribList);//defaultattriblist
 	pProp->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pProp);
 
 	// tagAlpha
-	pProp=new CMFCPropertyGridProperty(_T("Alpha"),(_variant_t)(LONG)0,_T("´°¿ÚµÄalphaÖµ(0-255)\n255"),tagAlpha);
+	pProp=new CMFCPropertyGridProperty(_T("Alpha"),(_variant_t)(LONG)0,_T("çª—å£çš„alphaå€¼(0-255)\n255"),tagAlpha);
 	pPropUI->AddSubItem(pProp);
 
 	// tagBkTrans
-	pProp=new CMFCPropertyGridProperty(_T("BkTrans"),(_variant_t)false,_T("´°¿ÚÊÇ·ñÊ¹ÓÃ¾²Ì¬Í¸Ã÷±³¾°\nfalse"),tagBkTrans);
+	pProp=new CMFCPropertyGridProperty(_T("BkTrans"),(_variant_t)false,_T("çª—å£æ˜¯å¦ä½¿ç”¨é™æ€é€æ˜èƒŒæ™¯\nfalse"),tagBkTrans);
 	pPropUI->AddSubItem(pProp);
 
 	// tagDefaultFontColor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("DefaultFontColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨Ä¬ÈÏµÄ×ÖÌåÑÕÉ«"),tagDefaultFontColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("DefaultFontColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šé»˜è®¤çš„å­—ä½“é¢œè‰²"),tagDefaultFontColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	// tagSelectedFontColor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("SelectedColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨Ä¬ÈÏµÄselected×ÖÌåÑÕÉ«"),tagSelectedFontColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("SelectedColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šé»˜è®¤çš„selectedå­—ä½“é¢œè‰²"),tagSelectedFontColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//	DisabledFontColor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("DisabledFontColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨Ä¬ÈÏµÄDisabled×ÖÌåÑÕÉ«"),tagDisabledFontColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("DisabledFontColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šé»˜è®¤çš„Disabledå­—ä½“é¢œè‰²"),tagDisabledFontColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	// tagLinkFontColor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("LinkFontColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨Ä¬ÈÏµÄlink×ÖÌåÑÕÉ«"),tagLinkFontColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("LinkFontColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šé»˜è®¤çš„linkå­—ä½“é¢œè‰²"),tagLinkFontColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	// tagLinkHoverFontColor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("LinkHoverFontColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨Ä¬ÈÏµÄlinkhoverfont×ÖÌåÑÕÉ«"),tagLinkHoverFontColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("LinkHoverFontColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šé»˜è®¤çš„linkhoverfontå­—ä½“é¢œè‰²"),tagLinkHoverFontColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -456,131 +456,131 @@ void CUIProperties::InitPropList()
 #pragma region Control
 	pPropUI=new CMFCPropertyGridProperty(_T("Control"),classControl);
 
-	pProp=new CMFCPropertyGridProperty(_T("Name"),(_variant_t)_T(""),_T("¿Ø¼şµÄÃû³Æ"),tagName);//name
+	pProp=new CMFCPropertyGridProperty(_T("Name"),(_variant_t)_T(""),_T("æ§ä»¶çš„åç§°"),tagName);//name
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("Text"),(_variant_t)_T(""),_T("¿Ø¼şµÄÏÔÊ¾ÎÄ±¾"),tagText);//text
+	pProp=new CMFCPropertyGridProperty(_T("Text"),(_variant_t)_T(""),_T("æ§ä»¶çš„æ˜¾ç¤ºæ–‡æœ¬"),tagText);//text
 	pPropUI->AddSubItem(pProp);
 
 	pValueList=new CMFCPropertyGridProperty(_T("Pos"),tagPos,TRUE);//pos
-	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("¿Ø¼şµÄLeftÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("æ§ä»¶çš„Leftä½ç½®"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("¿Ø¼şµÄTopÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("æ§ä»¶çš„Topä½ç½®"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("¿Ø¼şµÄRightÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("æ§ä»¶çš„Rightä½ç½®"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("¿Ø¼şµÄBottomÎ»ÖÃ"));
+	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("æ§ä»¶çš„Bottomä½ç½®"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("RelativePos"),tagRelativePos,TRUE);//relativepos
-	pProp=new CMFCPropertyGridProperty(_T("MoveX"),(_variant_t)(LONG)0,_T("¿Ø¼şµÄË®Æ½Î»ÒÆ"));
+	pProp=new CMFCPropertyGridProperty(_T("MoveX"),(_variant_t)(LONG)0,_T("æ§ä»¶çš„æ°´å¹³ä½ç§»"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("MoveY"),(_variant_t)(LONG)0,_T("¿Ø¼şµÄ´¹Ö±Î»ÒÆ"));
+	pProp=new CMFCPropertyGridProperty(_T("MoveY"),(_variant_t)(LONG)0,_T("æ§ä»¶çš„å‚ç›´ä½ç§»"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("ZoomX"),(_variant_t)(LONG)0,_T("¿Ø¼şµÄË®Æ½±ÈÀı"));
+	pProp=new CMFCPropertyGridProperty(_T("ZoomX"),(_variant_t)(LONG)0,_T("æ§ä»¶çš„æ°´å¹³æ¯”ä¾‹"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("ZoomY"),(_variant_t)(LONG)0,_T("¿Ø¼şµÄ´¹Ö±±ÈÀı"));
+	pProp=new CMFCPropertyGridProperty(_T("ZoomY"),(_variant_t)(LONG)0,_T("æ§ä»¶çš„å‚ç›´æ¯”ä¾‹"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("Size"),tagSize,TRUE);//size
-	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("¿Ø¼şµÄ¿í¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("æ§ä»¶çš„å®½åº¦"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("¿Ø¼şµÄ¸ß¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("æ§ä»¶çš„é«˜åº¦"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("MinSize"),tagMinSize,TRUE);//minsize
-	pProp=new CMFCPropertyGridProperty(_T("MinWidth"),(_variant_t)(LONG)0,_T("Ö¸¶¨¿Ø¼şµÄ×îĞ¡¿í¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("MinWidth"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ§ä»¶çš„æœ€å°å®½åº¦"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("MinHeight"),(_variant_t)(LONG)0,_T("Ö¸¶¨¿Ø¼şµÄ×îĞ¡¸ß¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("MinHeight"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ§ä»¶çš„æœ€å°é«˜åº¦"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("MaxSize"),tagMaxSize,TRUE);
-	pProp=new CMFCPropertyGridProperty(_T("MaxWidth"),(_variant_t)(LONG)0,_T("Ö¸¶¨¿Ø¼şµÄ×î´ó¿í¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("MaxWidth"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ§ä»¶çš„æœ€å¤§å®½åº¦"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("MaxHeight"),(_variant_t)(LONG)0,_T("Ö¸¶¨¿Ø¼şµÄ×î´ó¸ß¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("MaxHeight"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ§ä»¶çš„æœ€å¤§é«˜åº¦"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("Padding"),tagPadding,TRUE);//padding
-	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("Ö¸¶¨¿Ø¼şÄÚ²¿µÄ×ó±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ§ä»¶å†…éƒ¨çš„å·¦è¾¹è·"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("Ö¸¶¨¿Ø¼şÄÚ²¿µÄÉÏ±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ§ä»¶å†…éƒ¨çš„ä¸Šè¾¹è·"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("Ö¸¶¨¿Ø¼şÄÚ²¿µÄÓÒ±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ§ä»¶å†…éƒ¨çš„å³è¾¹è·"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("Ö¸¶¨¿Ø¼şÄÚ²¿µÄÏÂ±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ§ä»¶å†…éƒ¨çš„ä¸‹è¾¹è·"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("BkImage"),_T(""),_T("Ö¸¶¨¿Ø¼şµÄ±³¾°Í¼Æ¬"),tagBkImage);//bkimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("BkImage"),_T(""),_T("æŒ‡å®šæ§ä»¶çš„èƒŒæ™¯å›¾ç‰‡"),tagBkImage);//bkimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropColor=new CMFCPropertyGridColor32Property(_T("BkColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨¿Ø¼şµÄ±³¾°ÑÕÉ«"),tagBkColor);//bkcolor
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("BkColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šæ§ä»¶çš„èƒŒæ™¯é¢œè‰²"),tagBkColor);//bkcolor
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
-	pPropColor=new CMFCPropertyGridColorProperty(_T("BkColor2"),(LONG)RGB(0,0,0),NULL,_T("Ö¸¶¨¿Ø¼şµÄ±³¾°ÑÕÉ«2"),tagBkColor2);//bkcolor2
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColorProperty(_T("BkColor2"),(LONG)RGB(0,0,0),NULL,_T("æŒ‡å®šæ§ä»¶çš„èƒŒæ™¯é¢œè‰²2"),tagBkColor2);//bkcolor2
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
-	pPropColor=new CMFCPropertyGridColorProperty(_T("BorderColor"),(LONG)RGB(0,0,0),NULL,_T("Ö¸¶¨¿Ø¼şµÄ±ß¿òÑÕÉ«"),tagBorderColor);//bordercolor
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColorProperty(_T("BorderColor"),(LONG)RGB(0,0,0),NULL,_T("æŒ‡å®šæ§ä»¶çš„è¾¹æ¡†é¢œè‰²"),tagBorderColor);//bordercolor
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//focusbordercolor
-	pPropColor=new CMFCPropertyGridColorProperty(_T("focusbordercolor"),(LONG)RGB(0,0,0),NULL,_T("Ö¸¶¨¿Ø¼ş±ß¿ò»ñµÃ½¹µãÊ±±ß¿òµÄÑÕÉ«"),tagFocusBorderColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColorProperty(_T("focusbordercolor"),(LONG)RGB(0,0,0),NULL,_T("æŒ‡å®šæ§ä»¶è¾¹æ¡†è·å¾—ç„¦ç‚¹æ—¶è¾¹æ¡†çš„é¢œè‰²"),tagFocusBorderColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
-	pProp=new CMFCPropertyGridProperty(_T("BorderSize"),(_variant_t)(LONG)0,_T("Ö¸¶¨¿Ø¼şµÄ±ß¿òÏß¿í\n1"),tagBorderSize);//bordersize
+	pProp=new CMFCPropertyGridProperty(_T("BorderSize"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ§ä»¶çš„è¾¹æ¡†çº¿å®½\n1"),tagBorderSize);//bordersize
 	pPropUI->AddSubItem(pProp);
 
 	//borderround
 	pValueList=new CMFCPropertyGridProperty(_T("borderround"),tagBorderRound,TRUE);
-	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("±ß¿òÔ²½ÇµÄ¿í¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("è¾¹æ¡†åœ†è§’çš„å®½åº¦"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("±ß¿òÔ²½ÇµÄ¸ß¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("è¾¹æ¡†åœ†è§’çš„é«˜åº¦"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
-	pProp=new CMFCPropertyGridProperty(_T("Enabled"),(_variant_t)true,_T("Ö¸Ê¾ÊÇ·ñÒÑÆôÓÃ¸Ã¿Ø¼ş\nTrue"),tagEnabled);//enabled
+	pProp=new CMFCPropertyGridProperty(_T("Enabled"),(_variant_t)true,_T("æŒ‡ç¤ºæ˜¯å¦å·²å¯ç”¨è¯¥æ§ä»¶\nTrue"),tagEnabled);//enabled
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("Float"),(_variant_t)false,_T("È·¶¨¸Ã¿Ø¼şÊÇ¹Ì¶¨µÄ£¬»¹ÊÇ¸¡¶¯µÄ\nFalse"),tagFloat);//float
+	pProp=new CMFCPropertyGridProperty(_T("Float"),(_variant_t)false,_T("ç¡®å®šè¯¥æ§ä»¶æ˜¯å›ºå®šçš„ï¼Œè¿˜æ˜¯æµ®åŠ¨çš„\nFalse"),tagFloat);//float
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("Visible"),(_variant_t)true,_T("È·¶¨¸Ã¿Ø¼şÊÇ¿É¼ûµÄ£¬»¹ÊÇÒş²ØµÄ\nTrue"),tagVisible);//visible
+	pProp=new CMFCPropertyGridProperty(_T("Visible"),(_variant_t)true,_T("ç¡®å®šè¯¥æ§ä»¶æ˜¯å¯è§çš„ï¼Œè¿˜æ˜¯éšè—çš„\nTrue"),tagVisible);//visible
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("Mouse"),(_variant_t)true,_T("Ö¸Ê¾¸Ã¿Ø¼şÊÇ·ñÏìÓ¦Êó±ê²Ù×÷\nTrue"),tagMouse);//mouse
+	pProp=new CMFCPropertyGridProperty(_T("Mouse"),(_variant_t)true,_T("æŒ‡ç¤ºè¯¥æ§ä»¶æ˜¯å¦å“åº”é¼ æ ‡æ“ä½œ\nTrue"),tagMouse);//mouse
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("Menu"),(_variant_t)false,_T("Ö¸Ê¾¸Ã¿Ø¼şÊÇ·ñĞèÒªÓÒ¼ü²Ëµ¥\nFalse"),tagMenu);//menu
+	pProp=new CMFCPropertyGridProperty(_T("Menu"),(_variant_t)false,_T("æŒ‡ç¤ºè¯¥æ§ä»¶æ˜¯å¦éœ€è¦å³é”®èœå•\nFalse"),tagMenu);//menu
 	pPropUI->AddSubItem(pProp);
 
 	//colorhsl
-	pProp=new CMFCPropertyGridProperty(_T("ColorHSL"),(_variant_t)false,_T("Ö¸Ê¾¸Ã¿Ø¼şµÄÑÕÉ«ÊÇ·ñËæ´°¿ÚµÄhsl±ä»¯¶ø±ä»¯\nFalse"),tagColorHSL);
+	pProp=new CMFCPropertyGridProperty(_T("ColorHSL"),(_variant_t)false,_T("æŒ‡ç¤ºè¯¥æ§ä»¶çš„é¢œè‰²æ˜¯å¦éšçª—å£çš„hslå˜åŒ–è€Œå˜åŒ–\nFalse"),tagColorHSL);
 	pPropUI->AddSubItem(pProp);
 
 	//tooltip
-	pProp=new CMFCPropertyGridProperty(_T("Tooltip"),(_variant_t)_T(""),_T("Ö¸Ê¾¸Ã¿Ø¼şÊó±êĞü¸¡ÌáÊ¾"),tagTooltip);
+	pProp=new CMFCPropertyGridProperty(_T("Tooltip"),(_variant_t)_T(""),_T("æŒ‡ç¤ºè¯¥æ§ä»¶é¼ æ ‡æ‚¬æµ®æç¤º"),tagTooltip);
 	pPropUI->AddSubItem(pProp);
 
 	//userdata
-	pProp=new CMFCPropertyGridProperty(_T("UserData"),(_variant_t)_T(""),_T("Ö¸Ê¾¸Ã¿Ø¼ş×Ô¶¨Òå±êÊ¶\nFalse"),tagUserData);
+	pProp=new CMFCPropertyGridProperty(_T("UserData"),(_variant_t)_T(""),_T("æŒ‡ç¤ºè¯¥æ§ä»¶è‡ªå®šä¹‰æ ‡è¯†\nFalse"),tagUserData);
 	pPropUI->AddSubItem(pProp);
 
 	//keyboard
-	pProp=new CMFCPropertyGridProperty(_T("KeyBoard"),(_variant_t)false,_T("Ö¸Ê¾CButtonÀà¿Ø¼şÊÇ·ñ½ÓÊÜTabStopºÍ°´¼üÊÂ¼ş\nFalse"),tagKeyBoard);
+	pProp=new CMFCPropertyGridProperty(_T("KeyBoard"),(_variant_t)false,_T("æŒ‡ç¤ºCButtonç±»æ§ä»¶æ˜¯å¦æ¥å—TabStopå’ŒæŒ‰é”®äº‹ä»¶\nFalse"),tagKeyBoard);
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -591,7 +591,7 @@ void CUIProperties::InitPropList()
 	pPropUI=new CMFCPropertyGridProperty(_T("Label"),classLabel);
 
 	//align
-	pProp=new CMFCPropertyGridProperty(_T("Align"),_T("Center"),_T("Ö¸Ê¾ÎÄ±¾µÄ¶ÔÆë·½Ê½"),tagAlign);
+	pProp=new CMFCPropertyGridProperty(_T("Align"),_T("Center"),_T("æŒ‡ç¤ºæ–‡æœ¬çš„å¯¹é½æ–¹å¼"),tagAlign);
 	pProp->AddOption(_T("Center"));
 	pProp->AddOption(_T("Left"));
 	pProp->AddOption(_T("Right"));
@@ -601,39 +601,39 @@ void CUIProperties::InitPropList()
 	pPropUI->AddSubItem(pProp);
 
 	//textcolor
-	pPropColor=new CMFCPropertyGridColorProperty(_T("TextColor"),(LONG)RGB(0,0,0),NULL,_T("Ö¸¶¨ÎÄ±¾µÄÑÕÉ«"),tagTextColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColorProperty(_T("TextColor"),(LONG)RGB(0,0,0),NULL,_T("æŒ‡å®šæ–‡æœ¬çš„é¢œè‰²"),tagTextColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//disabledtextcolor
-	pPropColor=new CMFCPropertyGridColorProperty(_T("DisabledTextColor"),(LONG)RGB(0,0,0),NULL,_T("Ö¸¶¨ÎÄ±¾µÄÑÕÉ«"),tagDisabledTextColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColorProperty(_T("DisabledTextColor"),(LONG)RGB(0,0,0),NULL,_T("æŒ‡å®šæ–‡æœ¬çš„é¢œè‰²"),tagDisabledTextColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//font
-	pProp=new CMFCPropertyGridProperty(_T("Font"),(_variant_t)(LONG)-1,_T("Ö¸¶¨ÎÄ±¾µÄ×ÖÌå"),tagFont);
+	pProp=new CMFCPropertyGridProperty(_T("Font"),(_variant_t)(LONG)-1,_T("æŒ‡å®šæ–‡æœ¬çš„å­—ä½“"),tagFont);
 	pPropUI->AddSubItem(pProp);
 
 	//textpadding
 	pValueList=new CMFCPropertyGridProperty(_T("TextPadding"),tagTextPadding,TRUE);
-	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÎÄ±¾ÇøÓòµÄ×ó±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ–‡æœ¬åŒºåŸŸçš„å·¦è¾¹è·"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÎÄ±¾ÇøÓòµÄÉÏ±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ–‡æœ¬åŒºåŸŸçš„ä¸Šè¾¹è·"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÎÄ±¾ÇøÓòµÄÓÒ±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ–‡æœ¬åŒºåŸŸçš„å³è¾¹è·"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÎÄ±¾ÇøÓòµÄÏÂ±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ–‡æœ¬åŒºåŸŸçš„ä¸‹è¾¹è·"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	//showhtml
-	pProp=new CMFCPropertyGridProperty(_T("ShowHtml"),(_variant_t)false,_T("Ö¸Ê¾ÊÇ·ñÊ¹ÓÃHTML¸ñÊ½µÄÎÄ±¾"),tagShowHtml);
+	pProp=new CMFCPropertyGridProperty(_T("ShowHtml"),(_variant_t)false,_T("æŒ‡ç¤ºæ˜¯å¦ä½¿ç”¨HTMLæ ¼å¼çš„æ–‡æœ¬"),tagShowHtml);
 	pPropUI->AddSubItem(pProp);
 
 	//endellipsis
-	pProp=new CMFCPropertyGridProperty(_T("EndEllipsis"),(_variant_t)false,_T("Ö¸Ê¾¾äÄ©ÏÔÊ¾²»È«ÊÇ·ñÊ¹ÓÃ...´úÌæ"),tagEndEllipsis);
+	pProp=new CMFCPropertyGridProperty(_T("EndEllipsis"),(_variant_t)false,_T("æŒ‡ç¤ºå¥æœ«æ˜¾ç¤ºä¸å…¨æ˜¯å¦ä½¿ç”¨...ä»£æ›¿"),tagEndEllipsis);
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -643,23 +643,23 @@ void CUIProperties::InitPropList()
 #pragma region Button
 	pPropUI=new CMFCPropertyGridProperty(_T("Button"),classButton);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("NormalImage"),_T(""),_T("Ö¸¶¨°´Å¥Õı³£ÏÔÊ¾Ê±µÄÍ¼Æ¬"),tagNormalImage);//normalimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("NormalImage"),_T(""),_T("æŒ‡å®šæŒ‰é’®æ­£å¸¸æ˜¾ç¤ºæ—¶çš„å›¾ç‰‡"),tagNormalImage);//normalimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("HotImage"),_T(""),_T("Ö¸¶¨°´Å¥»ñµÃÈÈµãÊ±µÄÍ¼Æ¬"),tagHotImage);//hotimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("HotImage"),_T(""),_T("æŒ‡å®šæŒ‰é’®è·å¾—çƒ­ç‚¹æ—¶çš„å›¾ç‰‡"),tagHotImage);//hotimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("PushedImage"),_T(""),_T("Ö¸¶¨°´Å¥±»°´Ñ¹ÏÂÊ±µÄÍ¼Æ¬"),tagPushedImage);//pushedimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("PushedImage"),_T(""),_T("æŒ‡å®šæŒ‰é’®è¢«æŒ‰å‹ä¸‹æ—¶çš„å›¾ç‰‡"),tagPushedImage);//pushedimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("FocusedImage"),_T(""),_T("Ö¸¶¨°´Å¥»ñµÃ½¹µãºóµÄÍ¼Æ¬"),tagFocusedImage);//focusedimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("FocusedImage"),_T(""),_T("æŒ‡å®šæŒ‰é’®è·å¾—ç„¦ç‚¹åçš„å›¾ç‰‡"),tagFocusedImage);//focusedimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("DisabledImage"),_T(""),_T("Ö¸¶¨°´Å¥±»½ûÓÃºóµÄÍ¼Æ¬"),tagDisabledImage);//disabledimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("DisabledImage"),_T(""),_T("æŒ‡å®šæŒ‰é’®è¢«ç¦ç”¨åçš„å›¾ç‰‡"),tagDisabledImage);//disabledimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
@@ -671,41 +671,41 @@ void CUIProperties::InitPropList()
 	pPropUI=new CMFCPropertyGridProperty(_T("Edit"),classEdit);
 
 	//normalimage
-	pPropImage=new CMFCPropertyGridImageProperty(_T("NormalImage"),_T(""),_T("Ö¸¶¨±à¼­¿òÕı³£ÏÔÊ¾Ê±µÄÍ¼Æ¬"),tagEditNormalImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("NormalImage"),_T(""),_T("æŒ‡å®šç¼–è¾‘æ¡†æ­£å¸¸æ˜¾ç¤ºæ—¶çš„å›¾ç‰‡"),tagEditNormalImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	//hotimage
-	pPropImage=new CMFCPropertyGridImageProperty(_T("HotImage"),_T(""),_T("Ö¸¶¨±à¼­¿ò»ñµÃÈÈµãÊ±µÄÍ¼Æ¬"),tagEditHotImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("HotImage"),_T(""),_T("æŒ‡å®šç¼–è¾‘æ¡†è·å¾—çƒ­ç‚¹æ—¶çš„å›¾ç‰‡"),tagEditHotImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	//focusedimage
-	pPropImage=new CMFCPropertyGridImageProperty(_T("FocusedImage"),_T(""),_T("Ö¸¶¨±à¼­¿ò»ñµÃ½¹µãºóµÄÍ¼Æ¬"),tagEditFocusedImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("FocusedImage"),_T(""),_T("æŒ‡å®šç¼–è¾‘æ¡†è·å¾—ç„¦ç‚¹åçš„å›¾ç‰‡"),tagEditFocusedImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	//disabledimage
-	pPropImage=new CMFCPropertyGridImageProperty(_T("DisabledImage"),_T(""),_T("Ö¸¶¨±à¼­¿ò±»½ûÓÃºóµÄÍ¼Æ¬"),tagEditDisabledImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("DisabledImage"),_T(""),_T("æŒ‡å®šç¼–è¾‘æ¡†è¢«ç¦ç”¨åçš„å›¾ç‰‡"),tagEditDisabledImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	//readonly
-	pProp=new CMFCPropertyGridProperty(_T("ReadOnly"),(_variant_t)false,_T("Ö¸Ê¾ÊÇ·ñÖ»¶Á"),tagReadOnly);
+	pProp=new CMFCPropertyGridProperty(_T("ReadOnly"),(_variant_t)false,_T("æŒ‡ç¤ºæ˜¯å¦åªè¯»"),tagReadOnly);
 	pPropUI->AddSubItem(pProp);
 
 	//password
-	pProp=new CMFCPropertyGridProperty(_T("Password"),(_variant_t)false,_T("Ö¸Ê¾ÊÇ·ñÊ¹ÓÃÃÜÂë¿ò"),tagPassword);
+	pProp=new CMFCPropertyGridProperty(_T("Password"),(_variant_t)false,_T("æŒ‡ç¤ºæ˜¯å¦ä½¿ç”¨å¯†ç æ¡†"),tagPassword);
 	pPropUI->AddSubItem(pProp);
 
 	//maxchar
-	pProp=new CMFCPropertyGridProperty(_T("MaxChar"),(_variant_t)(LONG)0,_T("Ö¸Ê¾ÊäÈë×Ö·û×î´ó³¤¶È\n255"),tagMaxChar);
+	pProp=new CMFCPropertyGridProperty(_T("MaxChar"),(_variant_t)(LONG)0,_T("æŒ‡ç¤ºè¾“å…¥å­—ç¬¦æœ€å¤§é•¿åº¦\n255"),tagMaxChar);
 	pPropUI->AddSubItem(pProp);
 
 	//nativebkcolor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("NativeBKColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨WindowsÔ­ÉúEdit¿Ø¼şµÄ±³¾°ÑÕÉ«"),tagNativeBKColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("NativeBKColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šWindowsåŸç”ŸEditæ§ä»¶çš„èƒŒæ™¯é¢œè‰²"),tagNativeBKColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -715,18 +715,18 @@ void CUIProperties::InitPropList()
 #pragma region Option
 	pPropUI=new CMFCPropertyGridProperty(_T("Option"),classOption);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ForeImage"),_T(""),_T("Ö¸¶¨¸´Ñ¡¿òµÄÇ°¾°Í¼Æ¬"),tagOptForeImage);//foreimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ForeImage"),_T(""),_T("æŒ‡å®šå¤é€‰æ¡†çš„å‰æ™¯å›¾ç‰‡"),tagOptForeImage);//foreimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("SelectedImage"),_T(""),_T("Ö¸¶¨¸´Ñ¡¿ò±»Ñ¡ÔñºóµÄÍ¼Æ¬"),tagSelectedImage);//selectedimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("SelectedImage"),_T(""),_T("æŒ‡å®šå¤é€‰æ¡†è¢«é€‰æ‹©åçš„å›¾ç‰‡"),tagSelectedImage);//selectedimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pProp=new CMFCPropertyGridProperty(_T("Selected"),(_variant_t)false,_T("Ö¸Ê¾ÊÇ·ñÒÑ±»Ñ¡ÖĞ"),tagSelected);//selected
+	pProp=new CMFCPropertyGridProperty(_T("Selected"),(_variant_t)false,_T("æŒ‡ç¤ºæ˜¯å¦å·²è¢«é€‰ä¸­"),tagSelected);//selected
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("Group"),(_variant_t)_T(""),_T("Ö¸¶¨²ÎÓë×éºÏµÄÃû³Æ"),tagGroup);//group
+	pProp=new CMFCPropertyGridProperty(_T("Group"),(_variant_t)_T(""),_T("æŒ‡å®šå‚ä¸ç»„åˆçš„åç§°"),tagGroup);//group
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -736,24 +736,24 @@ void CUIProperties::InitPropList()
 #pragma region Progress
 	pPropUI=new CMFCPropertyGridProperty(_T("Progress"),classProgress);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ForeImage"),_T(""),_T("Ö¸¶¨½ø¶ÈÌõµÄÇ°¾°Í¼Æ¬"),tagForeImage);//foreimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ForeImage"),_T(""),_T("æŒ‡å®šè¿›åº¦æ¡çš„å‰æ™¯å›¾ç‰‡"),tagForeImage);//foreimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	pValueList=new CMFCPropertyGridProperty(_T("MinMax"),tagMinMax,TRUE);//minmax
-	pProp=new CMFCPropertyGridProperty(_T("Min"),(_variant_t)(LONG)0,_T("Ö¸¶¨½ø¶ÈÌõµÄ×îĞ¡Öµ"));
+	pProp=new CMFCPropertyGridProperty(_T("Min"),(_variant_t)(LONG)0,_T("æŒ‡å®šè¿›åº¦æ¡çš„æœ€å°å€¼"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Max"),(_variant_t)(LONG)0,_T("Ö¸¶¨½ø¶ÈÌõµÄ×î´óÖµ"));
+	pProp=new CMFCPropertyGridProperty(_T("Max"),(_variant_t)(LONG)0,_T("æŒ‡å®šè¿›åº¦æ¡çš„æœ€å¤§å€¼"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
-	pProp=new CMFCPropertyGridProperty(_T("Value"),(_variant_t)(LONG)0,_T("Ö¸¶¨½ø¶ÈÌõµÄÖµ"),tagValue);//value
+	pProp=new CMFCPropertyGridProperty(_T("Value"),(_variant_t)(LONG)0,_T("æŒ‡å®šè¿›åº¦æ¡çš„å€¼"),tagValue);//value
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("Hor"),(_variant_t)false,_T("Ö¸Ê¾½ø¶ÈÌõÊÇ·ñË®Æ½"),tagHor);//hor
+	pProp=new CMFCPropertyGridProperty(_T("Hor"),(_variant_t)false,_T("æŒ‡ç¤ºè¿›åº¦æ¡æ˜¯å¦æ°´å¹³"),tagHor);//hor
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("IsStretchFore"),(_variant_t)false,_T("Ö¸¶¨Ç°¾°ÊÇ·ñËõ·Å"),tagIsStretchFore);
+	pProp=new CMFCPropertyGridProperty(_T("IsStretchFore"),(_variant_t)false,_T("æŒ‡å®šå‰æ™¯æ˜¯å¦ç¼©æ”¾"),tagIsStretchFore);
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -763,22 +763,22 @@ void CUIProperties::InitPropList()
 #pragma region Slider
 	pPropUI=new CMFCPropertyGridProperty(_T("Slider"),classSlider);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbImage"),_T(""),_T("Ö¸¶¨»¬¿éµÄ»¬ÌõÍ¼Æ¬"),tagThumbImage);//thumbimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbImage"),_T(""),_T("æŒ‡å®šæ»‘å—çš„æ»‘æ¡å›¾ç‰‡"),tagThumbImage);//thumbimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbHotImage"),_T(""),_T("Ö¸¶¨»¬Ìõ»ñµÃÈÈµãÊ±µÄÍ¼Æ¬"),tagThumbHotImage);//thumbhotimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbHotImage"),_T(""),_T("æŒ‡å®šæ»‘æ¡è·å¾—çƒ­ç‚¹æ—¶çš„å›¾ç‰‡"),tagThumbHotImage);//thumbhotimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbPushedImage"),_T(""),_T("Ö¸¶¨»¬Ìõ±»°´Ñ¹ºóµÄÍ¼Æ¬"),tagThumbPushedImage);//thumbpushedimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbPushedImage"),_T(""),_T("æŒ‡å®šæ»‘æ¡è¢«æŒ‰å‹åçš„å›¾ç‰‡"),tagThumbPushedImage);//thumbpushedimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	pValueList=new CMFCPropertyGridProperty(_T("ThumbSize"),tagThumbSize,TRUE);//thumbsize
-	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("Ö¸¶¨»¬ÌõµÄ¿í¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ»‘æ¡çš„å®½åº¦"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("Ö¸¶¨»¬ÌõµÄ¸ß¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ»‘æ¡çš„é«˜åº¦"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
@@ -790,15 +790,15 @@ void CUIProperties::InitPropList()
 	pPropUI=new CMFCPropertyGridProperty(_T("ActiveX"),classActiveX);
 
 	//clsid
-	pProp=new CMFCPropertyGridProperty(_T("Clsid"),(_variant_t)_T(""),_T("Ö¸¶¨ActiveX¿Ø¼şµÄClsidÖµ"),tagClsid);
+	pProp=new CMFCPropertyGridProperty(_T("Clsid"),(_variant_t)_T(""),_T("æŒ‡å®šActiveXæ§ä»¶çš„Clsidå€¼"),tagClsid);
 	pPropUI->AddSubItem(pProp);
 
 	//delaycreate
-	pProp=new CMFCPropertyGridProperty(_T("DelayCreate"),(_variant_t)true,_T("Ö¸Ê¾ÊÇ·ñÑÓ³Ù¼ÓÔØActiveX¿Ø¼ş"),tagDelayCreate);
-	pPropUI->AddSubItem(pProp);//added by µË¾°ÈÊ 2011-09-08
+	pProp=new CMFCPropertyGridProperty(_T("DelayCreate"),(_variant_t)true,_T("æŒ‡ç¤ºæ˜¯å¦å»¶è¿ŸåŠ è½½ActiveXæ§ä»¶"),tagDelayCreate);
+	pPropUI->AddSubItem(pProp);//added by é‚“æ™¯ä» 2011-09-08
 
 	// modulename
-	pProp=new CMFCPropertyGridProperty(_T("ModuleName"),(_variant_t)_T(""),_T("Ö¸Ê¾´ÓÖ¸¶¨Î»ÖÃ¼ÓÔØActiveX¿Ø¼ş\nÈç(flash/flash.ocx)"),tagModuleName);
+	pProp=new CMFCPropertyGridProperty(_T("ModuleName"),(_variant_t)_T(""),_T("æŒ‡ç¤ºä»æŒ‡å®šä½ç½®åŠ è½½ActiveXæ§ä»¶\nå¦‚(flash/flash.ocx)"),tagModuleName);
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -809,26 +809,26 @@ void CUIProperties::InitPropList()
 	pPropUI=new CMFCPropertyGridProperty(_T("Container"),classContainer);
 
 	pValueList=new CMFCPropertyGridProperty(_T("Inset"),tagInset,TRUE);//inset
-	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÈİÆ÷¿Í»§ÇøÓòµÄ×ó±ß¾à\n0"));
+	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("æŒ‡å®šå®¹å™¨å®¢æˆ·åŒºåŸŸçš„å·¦è¾¹è·\n0"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÈİÆ÷¿Í»§ÇøÓòµÄÉÏ±ß¾à\n0"));
+	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("æŒ‡å®šå®¹å™¨å®¢æˆ·åŒºåŸŸçš„ä¸Šè¾¹è·\n0"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÈİÆ÷¿Í»§ÇøÓòµÄÓÒ±ß¾à\n0"));
+	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("æŒ‡å®šå®¹å™¨å®¢æˆ·åŒºåŸŸçš„å³è¾¹è·\n0"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÈİÆ÷¿Í»§ÇøÓòµÄÏÂ±ß¾à\n0"));
+	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("æŒ‡å®šå®¹å™¨å®¢æˆ·åŒºåŸŸçš„ä¸‹è¾¹è·\n0"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
-	pProp=new CMFCPropertyGridProperty(_T("ChildPadding"),(_variant_t)(LONG)0,_T("Ö¸¶¨×Ó¿Ø¼şÖ®¼äµÄ¼ä¾à\n0"),tagChildPadding);//childpadding
+	pProp=new CMFCPropertyGridProperty(_T("ChildPadding"),(_variant_t)(LONG)0,_T("æŒ‡å®šå­æ§ä»¶ä¹‹é—´çš„é—´è·\n0"),tagChildPadding);//childpadding
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("MouseChild"),(_variant_t)false,_T("Ö¸¶¨±¾¿Ø¼şµÄ×Ó¿Ø¼şÊÇ·ñ¿ÉÒÔÏìÓ¦ÓÃ»§²Ù×÷\nTrue"),tagMouseChild);//mousechild
+	pProp=new CMFCPropertyGridProperty(_T("MouseChild"),(_variant_t)false,_T("æŒ‡å®šæœ¬æ§ä»¶çš„å­æ§ä»¶æ˜¯å¦å¯ä»¥å“åº”ç”¨æˆ·æ“ä½œ\nTrue"),tagMouseChild);//mousechild
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("HScrollBar"),(_variant_t)false,_T("Ö¸Ê¾ÊÇ·ñÆôÓÃË®Æ½¹ö¶¯Ìõ\nFalse"),tagHScrollBar);//hscrollbar
+	pProp=new CMFCPropertyGridProperty(_T("HScrollBar"),(_variant_t)false,_T("æŒ‡ç¤ºæ˜¯å¦å¯ç”¨æ°´å¹³æ»šåŠ¨æ¡\nFalse"),tagHScrollBar);//hscrollbar
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("VScrollBar"),(_variant_t)false,_T("Ö¸Ê¾ÊÇ·ñÆôÓÃ´¹Ö±¹ö¶¯Ìõ\nFalse"),tagVScrollBar);//vscrollbar
+	pProp=new CMFCPropertyGridProperty(_T("VScrollBar"),(_variant_t)false,_T("æŒ‡ç¤ºæ˜¯å¦å¯ç”¨å‚ç›´æ»šåŠ¨æ¡\nFalse"),tagVScrollBar);//vscrollbar
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -838,36 +838,36 @@ void CUIProperties::InitPropList()
 #pragma region Item
 	pPropUI=new CMFCPropertyGridProperty(_T("Item"),classItem);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ItemBkImage"),_T(""),_T("Ö¸¶¨×éÏîÕı³£ÏÔÊ¾Ê±µÄÍ¼Æ¬"),tagItemBkImage);//itembkimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ItemBkImage"),_T(""),_T("æŒ‡å®šç»„é¡¹æ­£å¸¸æ˜¾ç¤ºæ—¶çš„å›¾ç‰‡"),tagItemBkImage);//itembkimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ItemHotImage"),_T(""),_T("Ö¸¶¨×éÏî»ñµÃÈÈµãÊ±µÄÍ¼Æ¬"),tagItemHotImage);//itemhotimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ItemHotImage"),_T(""),_T("æŒ‡å®šç»„é¡¹è·å¾—çƒ­ç‚¹æ—¶çš„å›¾ç‰‡"),tagItemHotImage);//itemhotimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ItemSelectedImage"),_T(""),_T("Ö¸¶¨×éÏî±»Ñ¡ÔñÊ±µÄÍ¼Æ¬"),tagItemSelectedImage);//itemselectedimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ItemSelectedImage"),_T(""),_T("æŒ‡å®šç»„é¡¹è¢«é€‰æ‹©æ—¶çš„å›¾ç‰‡"),tagItemSelectedImage);//itemselectedimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ItemDisabledImage"),_T(""),_T("Ö¸¶¨×éÏî±»½ûÓÃºóµÄÍ¼Æ¬"),tagItemDisabledImage);//itemdisabledimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ItemDisabledImage"),_T(""),_T("æŒ‡å®šç»„é¡¹è¢«ç¦ç”¨åçš„å›¾ç‰‡"),tagItemDisabledImage);//itemdisabledimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	//itemtextpadding
 	pValueList=new CMFCPropertyGridProperty(_T("ItemTextPadding"),tagItemTextPadding,TRUE);
-	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("Ö¸¶¨×éÏîÎÄ±¾ÇøÓòµÄ×ó±ß¾à\n0"));
+	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("æŒ‡å®šç»„é¡¹æ–‡æœ¬åŒºåŸŸçš„å·¦è¾¹è·\n0"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("Ö¸¶¨×éÏîÎÄ±¾ÇøÓòµÄÉÏ±ß¾à\n0"));
+	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("æŒ‡å®šç»„é¡¹æ–‡æœ¬åŒºåŸŸçš„ä¸Šè¾¹è·\n0"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("Ö¸¶¨×éÏîÎÄ±¾ÇøÓòµÄÓÒ±ß¾à\n0"));
+	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("æŒ‡å®šç»„é¡¹æ–‡æœ¬åŒºåŸŸçš„å³è¾¹è·\n0"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("Ö¸¶¨×éÏîÎÄ±¾ÇøÓòµÄÏÂ±ß¾à\n0"));
+	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("æŒ‡å®šç»„é¡¹æ–‡æœ¬åŒºåŸŸçš„ä¸‹è¾¹è·\n0"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	//itemalign
-	pProp=new CMFCPropertyGridProperty(_T("ItemAlign"),_T("Center"),_T("Ö¸Ê¾×éÏîÎÄ±¾µÄ¶ÔÆë·½Ê½\nCenter"),tagItemAlign);
+	pProp=new CMFCPropertyGridProperty(_T("ItemAlign"),_T("Center"),_T("æŒ‡ç¤ºç»„é¡¹æ–‡æœ¬çš„å¯¹é½æ–¹å¼\nCenter"),tagItemAlign);
 	pProp->AddOption(_T("Center"));
 	pProp->AddOption(_T("Left"));
 	pProp->AddOption(_T("Right"));
@@ -875,69 +875,69 @@ void CUIProperties::InitPropList()
 	pPropUI->AddSubItem(pProp);
 
 	//itemtextcolor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemTextColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨×éÏîÎÄ±¾µÄÑÕÉ«"),tagItemTextColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemTextColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šç»„é¡¹æ–‡æœ¬çš„é¢œè‰²"),tagItemTextColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//itembkcolor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemBkColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨×éÏî±³¾°µÄÑÕÉ«"),tagItemBkColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemBkColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šç»„é¡¹èƒŒæ™¯çš„é¢œè‰²"),tagItemBkColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//itemselectedtextcolor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemSelectedTextColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨×éÏî±»Ñ¡ÖĞºóÎÄ±¾µÄÑÕÉ«"),tagItemSelectedTextColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemSelectedTextColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šç»„é¡¹è¢«é€‰ä¸­åæ–‡æœ¬çš„é¢œè‰²"),tagItemSelectedTextColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//itemselectedbkcolor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemSelectedBkColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨×éÏî±»Ñ¡ÖĞºó±³¾°µÄÑÕÉ«"),tagItemSelectedBkColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemSelectedBkColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šç»„é¡¹è¢«é€‰ä¸­åèƒŒæ™¯çš„é¢œè‰²"),tagItemSelectedBkColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//itemhottextcolor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemHotTextColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨×éÏî»ñµÃÈÈµãÊ±ÎÄ±¾µÄÑÕÉ«"),tagItemHotTextColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemHotTextColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šç»„é¡¹è·å¾—çƒ­ç‚¹æ—¶æ–‡æœ¬çš„é¢œè‰²"),tagItemHotTextColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//itemhotbkcolor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemHotBkColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨×éÏî»ñµÃÈÈµãÊ±±³¾°µÄÑÕÉ«"),tagItemHotBkColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemHotBkColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šç»„é¡¹è·å¾—çƒ­ç‚¹æ—¶èƒŒæ™¯çš„é¢œè‰²"),tagItemHotBkColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//itemdisabledtextcolor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemDisabledTextColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨×éÏî±»½ûÓÃºóÎÄ±¾µÄÑÕÉ«"),tagItemDisabledTextColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemDisabledTextColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šç»„é¡¹è¢«ç¦ç”¨åæ–‡æœ¬çš„é¢œè‰²"),tagItemDisabledTextColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//itemdisabledbkcolor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemDisabledBkColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨×éÏî±»½ûÓÃºó±³¾°µÄÑÕÉ«"),tagItemDisabledBkColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemDisabledBkColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šç»„é¡¹è¢«ç¦ç”¨åèƒŒæ™¯çš„é¢œè‰²"),tagItemDisabledBkColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//ItemLineColor
-	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemLineColor"),(LONG)ARGB(0,0,0,0),NULL,_T("Ö¸¶¨×éÏî·Ö¸îÏßµÄÑÕÉ«"),tagItemLineColor);
-	pPropColor->EnableOtherButton(_T("ÆäËû..."));
-	pPropColor->EnableAutomaticButton(_T("Ä¬ÈÏ"),::GetSysColor(COLOR_3DFACE));
+	pPropColor=new CMFCPropertyGridColor32Property(_T("ItemLineColor"),(LONG)ARGB(0,0,0,0),NULL,_T("æŒ‡å®šç»„é¡¹åˆ†å‰²çº¿çš„é¢œè‰²"),tagItemLineColor);
+	pPropColor->EnableOtherButton(_T("å…¶ä»–..."));
+	pPropColor->EnableAutomaticButton(_T("é»˜è®¤"),::GetSysColor(COLOR_3DFACE));
 	pPropUI->AddSubItem(pPropColor);
 
 	//ItemFont
-	pProp=new CMFCPropertyGridProperty(_T("ItemFont"),(_variant_t)(LONG)-1,_T("Ö¸¶¨×éÏîÎÄ±¾µÄ×ÖÌå\n-1"),tagItemFont);
+	pProp=new CMFCPropertyGridProperty(_T("ItemFont"),(_variant_t)(LONG)-1,_T("æŒ‡å®šç»„é¡¹æ–‡æœ¬çš„å­—ä½“\n-1"),tagItemFont);
 	pPropUI->AddSubItem(pProp);
 
 	//ItemShowHtml
-	pProp=new CMFCPropertyGridProperty(_T("ItemShowHtml"),(_variant_t)false,_T("Ö¸Ê¾ÊÇ·ñÊ¹ÓÃHtml¸ñÊ½ÎÄ±¾\nFalse"),tagItemShowHtml);
+	pProp=new CMFCPropertyGridProperty(_T("ItemShowHtml"),(_variant_t)false,_T("æŒ‡ç¤ºæ˜¯å¦ä½¿ç”¨Htmlæ ¼å¼æ–‡æœ¬\nFalse"),tagItemShowHtml);
 	pPropUI->AddSubItem(pProp);
 
 	//MultiExpanding
-	pProp=new CMFCPropertyGridProperty(_T("MultiExpanding"),(_variant_t)false,_T("Ö¸Ê¾ÊÇ·ñÖ§³Ö¶à¸öitemÍ¬Ê±´ò¿ª\nFalse"),tagMultiExpanding);
+	pProp=new CMFCPropertyGridProperty(_T("MultiExpanding"),(_variant_t)false,_T("æŒ‡ç¤ºæ˜¯å¦æ”¯æŒå¤šä¸ªitemåŒæ—¶æ‰“å¼€\nFalse"),tagMultiExpanding);
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -947,41 +947,41 @@ void CUIProperties::InitPropList()
 #pragma region Combo
 	pPropUI=new CMFCPropertyGridProperty(_T("Combo"),classCombo);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("NormalImage"),_T(""),_T("Ö¸¶¨×éºÏ¿òÕı³£ÏÔÊ¾Ê±µÄÍ¼Æ¬"),tagComboNormalImage);//normalimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("NormalImage"),_T(""),_T("æŒ‡å®šç»„åˆæ¡†æ­£å¸¸æ˜¾ç¤ºæ—¶çš„å›¾ç‰‡"),tagComboNormalImage);//normalimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("HotImage"),_T(""),_T("Ö¸¶¨×éºÏ¿ò»ñµÃÈÈµãÊ±µÄÍ¼Æ¬"),tagComboHotImage);//hotimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("HotImage"),_T(""),_T("æŒ‡å®šç»„åˆæ¡†è·å¾—çƒ­ç‚¹æ—¶çš„å›¾ç‰‡"),tagComboHotImage);//hotimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("PushedImage"),_T(""),_T("Ö¸¶¨×éºÏ¿ò±»°´Ñ¹ÏÂÊ±µÄÍ¼Æ¬"),tagComboPushedImage);//pushedimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("PushedImage"),_T(""),_T("æŒ‡å®šç»„åˆæ¡†è¢«æŒ‰å‹ä¸‹æ—¶çš„å›¾ç‰‡"),tagComboPushedImage);//pushedimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("FocusedImage"),_T(""),_T("Ö¸¶¨×éºÏ¿ò»ñµÃ½¹µãºóµÄÍ¼Æ¬"),tagComboFocusedImage);//focusedimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("FocusedImage"),_T(""),_T("æŒ‡å®šç»„åˆæ¡†è·å¾—ç„¦ç‚¹åçš„å›¾ç‰‡"),tagComboFocusedImage);//focusedimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("DisabledImage"),_T(""),_T("Ö¸¶¨×éºÏ¿ò±»½ûÓÃºóµÄÍ¼Æ¬"),tagComboDisabledImage);//disabledimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("DisabledImage"),_T(""),_T("æŒ‡å®šç»„åˆæ¡†è¢«ç¦ç”¨åçš„å›¾ç‰‡"),tagComboDisabledImage);//disabledimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	pValueList=new CMFCPropertyGridProperty(_T("TextPadding"),tagComboTextPadding,TRUE);//textpadding
-	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÎÄ±¾ÇøÓòµÄ×ó±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Left"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ–‡æœ¬åŒºåŸŸçš„å·¦è¾¹è·"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÎÄ±¾ÇøÓòµÄÉÏ±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Top"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ–‡æœ¬åŒºåŸŸçš„ä¸Šè¾¹è·"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÎÄ±¾ÇøÓòµÄÓÒ±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Right"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ–‡æœ¬åŒºåŸŸçš„å³è¾¹è·"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("Ö¸¶¨ÎÄ±¾ÇøÓòµÄÏÂ±ß¾à"));
+	pProp=new CMFCPropertyGridProperty(_T("Bottom"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ–‡æœ¬åŒºåŸŸçš„ä¸‹è¾¹è·"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
 	pValueList=new CMFCPropertyGridProperty(_T("DropBoxSize"),tagComboDropBoxSize,TRUE);//dropboxsize
-	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("ÏÂÀ­ÁĞ±íµÄ¿í¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("ä¸‹æ‹‰åˆ—è¡¨çš„å®½åº¦"));
 	pValueList->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("ÏÂÀ­ÁĞ±íµÄ¸ß¶È"));
+	pProp=new CMFCPropertyGridProperty(_T("Height"),(_variant_t)(LONG)0,_T("ä¸‹æ‹‰åˆ—è¡¨çš„é«˜åº¦"));
 	pValueList->AddSubItem(pProp);
 	pPropUI->AddSubItem(pValueList);
 
@@ -992,10 +992,10 @@ void CUIProperties::InitPropList()
 #pragma region HorizontalLayout
 	pPropUI=new CMFCPropertyGridProperty(_T("HorizontalLayout"),classHorizontalLayout);
 
-	pProp=new CMFCPropertyGridProperty(_T("SepWidth"),(_variant_t)(LONG)0,_T("·Ö¸ô·û¿í,Õı¸º±íÊ¾·Ö¸ô·ûÔÚ×ó±ß»¹ÊÇÓÒ±ß\n0"),tagSepWidth);//sepwidth
+	pProp=new CMFCPropertyGridProperty(_T("SepWidth"),(_variant_t)(LONG)0,_T("åˆ†éš”ç¬¦å®½,æ­£è´Ÿè¡¨ç¤ºåˆ†éš”ç¬¦åœ¨å·¦è¾¹è¿˜æ˜¯å³è¾¹\n0"),tagSepWidth);//sepwidth
 	pPropUI->AddSubItem(pProp);
 
-	pProp=new CMFCPropertyGridProperty(_T("SepImm"),(_variant_t)false,_T("ÍÏ¶¯·Ö¸ô·ûÊÇ·ñÁ¢¼´¸Ä±ä´óĞ¡\nfalse"),tagSepImm);//sepimm
+	pProp=new CMFCPropertyGridProperty(_T("SepImm"),(_variant_t)false,_T("æ‹–åŠ¨åˆ†éš”ç¬¦æ˜¯å¦ç«‹å³æ”¹å˜å¤§å°\nfalse"),tagSepImm);//sepimm
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -1005,7 +1005,7 @@ void CUIProperties::InitPropList()
 #pragma region TileLayout
 	pPropUI=new CMFCPropertyGridProperty(_T("TileLayout"),classTileLayout);
 
-	pProp=new CMFCPropertyGridProperty(_T("Columns"),(_variant_t)(LONG)0,_T("Ö¸¶¨²¢ÁĞ²¼¾ÖµÄÁĞÊı"),tagColumns);//columns
+	pProp=new CMFCPropertyGridProperty(_T("Columns"),(_variant_t)(LONG)0,_T("æŒ‡å®šå¹¶åˆ—å¸ƒå±€çš„åˆ—æ•°"),tagColumns);//columns
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -1015,10 +1015,10 @@ void CUIProperties::InitPropList()
 #pragma region List
 	pPropUI=new CMFCPropertyGridProperty(_T("List"),classList);
 
-	pProp=new CMFCPropertyGridProperty(_T("Header"),(_variant_t)false,_T("Ö¸¶¨ÊÇ·ñÏÔÊ¾ÁĞ±í±íÍ·\nTrue"),tagListHeader);
+	pProp=new CMFCPropertyGridProperty(_T("Header"),(_variant_t)false,_T("æŒ‡å®šæ˜¯å¦æ˜¾ç¤ºåˆ—è¡¨è¡¨å¤´\nTrue"),tagListHeader);
 	pPropUI->AddSubItem(pProp);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("headerbkimage"),_T(""),_T("Ö¸¶¨±íÍ·±³¾°Í¼Æ¬"),tagListHeaderBKImage);//normalimage
+	pPropImage=new CMFCPropertyGridImageProperty(_T("headerbkimage"),_T(""),_T("æŒ‡å®šè¡¨å¤´èƒŒæ™¯å›¾ç‰‡"),tagListHeaderBKImage);//normalimage
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
@@ -1030,80 +1030,80 @@ void CUIProperties::InitPropList()
 
 	pPropUI=new CMFCPropertyGridProperty(_T("ScrollBar"),classScrollBar);
 
-	pProp=new CMFCPropertyGridProperty(_T("Range"),(_variant_t)(LONG)0,_T("Ö¸¶¨¹ö¶¯·¶Î§\n100"),tagScrollBarRange);
+	pProp=new CMFCPropertyGridProperty(_T("Range"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ»šåŠ¨èŒƒå›´\n100"),tagScrollBarRange);
 	pPropUI->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("Value"),(_variant_t)(LONG)0,_T("Ö¸¶¨¹ö¶¯Î»ÖÃ\n0"),tagScrollBarValue);
+	pProp=new CMFCPropertyGridProperty(_T("Value"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ»šåŠ¨ä½ç½®\n0"),tagScrollBarValue);
 	pPropUI->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("LineSize"),(_variant_t)(LONG)0,_T("Ö¸¶¨¹ö¶¯Ò»ĞĞµÄ´óĞ¡\n8"),tagScrollBarLineSize);
-	pPropUI->AddSubItem(pProp);
-
-	pProp=new CMFCPropertyGridProperty(_T("ShowButton1"),(_variant_t)false,_T("ÊÇ·ñÏÔÊ¾×ó»òÉÏ°´Å¥\nTrue"),tagScrollBarShowButton1);
-	pPropUI->AddSubItem(pProp);
-	pProp=new CMFCPropertyGridProperty(_T("ShowButton2"),(_variant_t)false,_T("ÊÇ·ñÏÔÊ¾×ó»òÉÏ°´Å¥\nTrue"),tagScrollBarShowButton2);
+	pProp=new CMFCPropertyGridProperty(_T("LineSize"),(_variant_t)(LONG)0,_T("æŒ‡å®šæ»šåŠ¨ä¸€è¡Œçš„å¤§å°\n8"),tagScrollBarLineSize);
 	pPropUI->AddSubItem(pProp);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("Button1NormalImage"),_T(""),_T("Ö¸¶¨×ó»òÉÏ°´Å¥ÆÕÍ¨×´Ì¬Í¼Æ¬"),tagScrollBarButton1NormalImage);
+	pProp=new CMFCPropertyGridProperty(_T("ShowButton1"),(_variant_t)false,_T("æ˜¯å¦æ˜¾ç¤ºå·¦æˆ–ä¸ŠæŒ‰é’®\nTrue"),tagScrollBarShowButton1);
+	pPropUI->AddSubItem(pProp);
+	pProp=new CMFCPropertyGridProperty(_T("ShowButton2"),(_variant_t)false,_T("æ˜¯å¦æ˜¾ç¤ºå·¦æˆ–ä¸ŠæŒ‰é’®\nTrue"),tagScrollBarShowButton2);
+	pPropUI->AddSubItem(pProp);
+
+	pPropImage=new CMFCPropertyGridImageProperty(_T("Button1NormalImage"),_T(""),_T("æŒ‡å®šå·¦æˆ–ä¸ŠæŒ‰é’®æ™®é€šçŠ¶æ€å›¾ç‰‡"),tagScrollBarButton1NormalImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("Button1HotImage"),_T(""),_T("Ö¸¶¨×ó»òÉÏ°´Å¥Êó±êĞü¸¡×´Ì¬Í¼Æ¬"),tagScrollBarButton1HotImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("Button1HotImage"),_T(""),_T("æŒ‡å®šå·¦æˆ–ä¸ŠæŒ‰é’®é¼ æ ‡æ‚¬æµ®çŠ¶æ€å›¾ç‰‡"),tagScrollBarButton1HotImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("Button1PushedImage"),_T(""),_T("Ö¸¶¨×ó»òÉÏ°´Å¥Êó±ê°´ÏÂ×´Ì¬Í¼Æ¬"),tagScrollBarButton1PushedImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("Button1PushedImage"),_T(""),_T("æŒ‡å®šå·¦æˆ–ä¸ŠæŒ‰é’®é¼ æ ‡æŒ‰ä¸‹çŠ¶æ€å›¾ç‰‡"),tagScrollBarButton1PushedImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("Button1DisabledImage"),_T(""),_T("Ö¸¶¨×ó»òÉÏ°´Å¥Êó±ê½ûÓÃ×´Ì¬Í¼Æ¬"),tagScrollBarButton1DisabledImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("Button1DisabledImage"),_T(""),_T("æŒ‡å®šå·¦æˆ–ä¸ŠæŒ‰é’®é¼ æ ‡ç¦ç”¨çŠ¶æ€å›¾ç‰‡"),tagScrollBarButton1DisabledImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("Button2NormalImage"),_T(""),_T("Ö¸¶¨×ó»òÉÏ°´Å¥ÆÕÍ¨×´Ì¬Í¼Æ¬"),tagScrollBarButton2NormalImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("Button2NormalImage"),_T(""),_T("æŒ‡å®šå·¦æˆ–ä¸ŠæŒ‰é’®æ™®é€šçŠ¶æ€å›¾ç‰‡"),tagScrollBarButton2NormalImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("Button2HotImage"),_T(""),_T("Ö¸¶¨×ó»òÉÏ°´Å¥Êó±êĞü¸¡×´Ì¬Í¼Æ¬"),tagScrollBarButton2HotImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("Button2HotImage"),_T(""),_T("æŒ‡å®šå·¦æˆ–ä¸ŠæŒ‰é’®é¼ æ ‡æ‚¬æµ®çŠ¶æ€å›¾ç‰‡"),tagScrollBarButton2HotImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("Button2PushedImage"),_T(""),_T("Ö¸¶¨×ó»òÉÏ°´Å¥Êó±ê°´ÏÂ×´Ì¬Í¼Æ¬"),tagScrollBarButton2PushedImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("Button2PushedImage"),_T(""),_T("æŒ‡å®šå·¦æˆ–ä¸ŠæŒ‰é’®é¼ æ ‡æŒ‰ä¸‹çŠ¶æ€å›¾ç‰‡"),tagScrollBarButton2PushedImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("Button2DisabledImage"),_T(""),_T("Ö¸¶¨×ó»òÉÏ°´Å¥Êó±êĞü½ûÓÃÌ¬Í¼Æ¬"),tagScrollBarButton2DisabledImage);
-	pPropImage->AllowEdit(FALSE);
-	pPropUI->AddSubItem(pPropImage);
-
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbNormalImage"),_T(""),_T("Ö¸¶¨»¬¿éÆÕÍ¨×´Ì¬Í¼Æ¬"),tagScrollBarThumbNormalImage);
-	pPropImage->AllowEdit(FALSE);
-	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbHotImage"),_T(""),_T("Ö¸¶¨»¬¿éÊó±êĞü¸¡×´Ì¬Í¼Æ¬"),tagScrollBarThumbHotImage);
-	pPropImage->AllowEdit(FALSE);
-	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbPushedImage"),_T(""),_T("Ö¸¶¨»¬¿éÊó±ê°´ÏÂ×´Ì¬Í¼Æ¬"),tagScrollBarThumbPushedImage);
-	pPropImage->AllowEdit(FALSE);
-	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbDisabledImage"),_T(""),_T("Ö¸¶¨»¬¿é½ûÓÃ×´Ì¬Í¼Æ¬"),tagScrollBarThumbDisabledImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("Button2DisabledImage"),_T(""),_T("æŒ‡å®šå·¦æˆ–ä¸ŠæŒ‰é’®é¼ æ ‡æ‚¬ç¦ç”¨æ€å›¾ç‰‡"),tagScrollBarButton2DisabledImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("RailNormalImage"),_T(""),_T("Ö¸¶¨»¬¿éÖĞ¼ä±êÊ¶ÆÕÍ¨×´Ì¬Í¼Æ¬"),tagScrollBarRailNormalImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbNormalImage"),_T(""),_T("æŒ‡å®šæ»‘å—æ™®é€šçŠ¶æ€å›¾ç‰‡"),tagScrollBarThumbNormalImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("RailHotImage"),_T(""),_T("Ö¸¶¨»¬¿éÖĞ¼ä±êÊ¶Êó±êĞü¸¡×´Ì¬Í¼Æ¬"),tagScrollBarRailHotImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbHotImage"),_T(""),_T("æŒ‡å®šæ»‘å—é¼ æ ‡æ‚¬æµ®çŠ¶æ€å›¾ç‰‡"),tagScrollBarThumbHotImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("RailPushedImage"),_T(""),_T("Ö¸¶¨»¬¿éÖĞ¼ä±êÊ¶Êó±ê°´ÏÂ×´Ì¬Í¼Æ¬"),tagScrollBarRailPushedImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbPushedImage"),_T(""),_T("æŒ‡å®šæ»‘å—é¼ æ ‡æŒ‰ä¸‹çŠ¶æ€å›¾ç‰‡"),tagScrollBarThumbPushedImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("RailDisabledImage"),_T(""),_T("Ö¸¶¨»¬¿éÖĞ¼ä±êÊ¶½ûÓÃ×´Ì¬Í¼Æ¬"),tagScrollBarRailDisabledImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("ThumbDisabledImage"),_T(""),_T("æŒ‡å®šæ»‘å—ç¦ç”¨çŠ¶æ€å›¾ç‰‡"),tagScrollBarThumbDisabledImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
-	pPropImage=new CMFCPropertyGridImageProperty(_T("BKNormalImage"),_T(""),_T("Ö¸¶¨±³¾°ÆÕÍ¨×´Ì¬Í¼Æ¬"),tagScrollBarBKNormalImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("RailNormalImage"),_T(""),_T("æŒ‡å®šæ»‘å—ä¸­é—´æ ‡è¯†æ™®é€šçŠ¶æ€å›¾ç‰‡"),tagScrollBarRailNormalImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("BKHotImage"),_T(""),_T("Ö¸¶¨±³¾°Êó±êĞü¸¡×´Ì¬Í¼Æ¬"),tagScrollBarBKHotImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("RailHotImage"),_T(""),_T("æŒ‡å®šæ»‘å—ä¸­é—´æ ‡è¯†é¼ æ ‡æ‚¬æµ®çŠ¶æ€å›¾ç‰‡"),tagScrollBarRailHotImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("BKPushedImage"),_T(""),_T("Ö¸¶¨±³¾°Êó±ê°´ÏÂ×´Ì¬Í¼Æ¬"),tagScrollBarBKPushedImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("RailPushedImage"),_T(""),_T("æŒ‡å®šæ»‘å—ä¸­é—´æ ‡è¯†é¼ æ ‡æŒ‰ä¸‹çŠ¶æ€å›¾ç‰‡"),tagScrollBarRailPushedImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
-	pPropImage=new CMFCPropertyGridImageProperty(_T("BKDisabledImage"),_T(""),_T("Ö¸¶¨±³¾°½ûÓÃ×´Ì¬Í¼Æ¬"),tagScrollBarBKDisabledImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("RailDisabledImage"),_T(""),_T("æŒ‡å®šæ»‘å—ä¸­é—´æ ‡è¯†ç¦ç”¨çŠ¶æ€å›¾ç‰‡"),tagScrollBarRailDisabledImage);
+	pPropImage->AllowEdit(FALSE);
+	pPropUI->AddSubItem(pPropImage);
+
+	pPropImage=new CMFCPropertyGridImageProperty(_T("BKNormalImage"),_T(""),_T("æŒ‡å®šèƒŒæ™¯æ™®é€šçŠ¶æ€å›¾ç‰‡"),tagScrollBarBKNormalImage);
+	pPropImage->AllowEdit(FALSE);
+	pPropUI->AddSubItem(pPropImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("BKHotImage"),_T(""),_T("æŒ‡å®šèƒŒæ™¯é¼ æ ‡æ‚¬æµ®çŠ¶æ€å›¾ç‰‡"),tagScrollBarBKHotImage);
+	pPropImage->AllowEdit(FALSE);
+	pPropUI->AddSubItem(pPropImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("BKPushedImage"),_T(""),_T("æŒ‡å®šèƒŒæ™¯é¼ æ ‡æŒ‰ä¸‹çŠ¶æ€å›¾ç‰‡"),tagScrollBarBKPushedImage);
+	pPropImage->AllowEdit(FALSE);
+	pPropUI->AddSubItem(pPropImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("BKDisabledImage"),_T(""),_T("æŒ‡å®šèƒŒæ™¯ç¦ç”¨çŠ¶æ€å›¾ç‰‡"),tagScrollBarBKDisabledImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
@@ -1115,7 +1115,7 @@ void CUIProperties::InitPropList()
 	pPropUI=new CMFCPropertyGridProperty(_T("TabLayout"),classTabLayout);
 
 	// selectedid
-	pProp=new CMFCPropertyGridProperty(_T("selectedid"),(_variant_t)(LONG)0,_T("Ä¬ÈÏÑ¡ÖĞµÄÒ³ÃæID\n´Ó0¿ªÊ¼¼ÆÊı"),tagSelectedID);
+	pProp=new CMFCPropertyGridProperty(_T("selectedid"),(_variant_t)(LONG)0,_T("é»˜è®¤é€‰ä¸­çš„é¡µé¢ID\nä»0å¼€å§‹è®¡æ•°"),tagSelectedID);
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -1126,35 +1126,35 @@ void CUIProperties::InitPropList()
 	pPropUI=new CMFCPropertyGridProperty(_T("ListHeaderItem"),classListHeaderItem);
 
 	// dragable
-	pProp=new CMFCPropertyGridProperty(_T("Dragable"),(_variant_t)true,_T("ÊÇ·ñ¿ÉÍÏ¶¯¸Ä±ä´óĞ¡\ntrue"),tagDragable);
+	pProp=new CMFCPropertyGridProperty(_T("Dragable"),(_variant_t)true,_T("æ˜¯å¦å¯æ‹–åŠ¨æ”¹å˜å¤§å°\ntrue"),tagDragable);
 	pPropUI->AddSubItem(pProp);
 
 	// sepwidth
-	pProp=new CMFCPropertyGridProperty(_T("SepWidth"),(_variant_t)(LONG)0,_T("·Ö¸ô·û¿í\n4"),tagListHeaderItemSepWidth);
+	pProp=new CMFCPropertyGridProperty(_T("SepWidth"),(_variant_t)(LONG)0,_T("åˆ†éš”ç¬¦å®½\n4"),tagListHeaderItemSepWidth);
 	pPropUI->AddSubItem(pProp);
 
 	// normalimage
-	pPropImage=new CMFCPropertyGridImageProperty(_T("NormalImage"),_T(""),_T("ÆÕÍ¨×´Ì¬Í¼Æ¬"),tagListHeaderItemNormalImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("NormalImage"),_T(""),_T("æ™®é€šçŠ¶æ€å›¾ç‰‡"),tagListHeaderItemNormalImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	// hotimage
-	pPropImage=new CMFCPropertyGridImageProperty(_T("HotImage"),_T(""),_T("Êó±êĞü¸¡µÄ×´Ì¬Í¼Æ¬"),tagListHeaderItemHotImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("HotImage"),_T(""),_T("é¼ æ ‡æ‚¬æµ®çš„çŠ¶æ€å›¾ç‰‡"),tagListHeaderItemHotImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	// PushedImage
-	pPropImage=new CMFCPropertyGridImageProperty(_T("PushedImage"),_T(""),_T("Êó±ê°´ÏÂµÄ×´Ì¬Í¼Æ¬"),tagListHeaderItemPushedImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("PushedImage"),_T(""),_T("é¼ æ ‡æŒ‰ä¸‹çš„çŠ¶æ€å›¾ç‰‡"),tagListHeaderItemPushedImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	// focusedimage
-	pPropImage=new CMFCPropertyGridImageProperty(_T("FocusedImage"),_T(""),_T("»ñµÃ½¹µãÊ±µÄ×´Ì¬Í¼Æ¬"),tagListHeaderItemFocusedImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("FocusedImage"),_T(""),_T("è·å¾—ç„¦ç‚¹æ—¶çš„çŠ¶æ€å›¾ç‰‡"),tagListHeaderItemFocusedImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
 	// sepimage
-	pPropImage=new CMFCPropertyGridImageProperty(_T("SepImage"),_T(""),_T("ÍÏ¶¯ÌõÍ¼Æ¬"),tagSepImage);
+	pPropImage=new CMFCPropertyGridImageProperty(_T("SepImage"),_T(""),_T("æ‹–åŠ¨æ¡å›¾ç‰‡"),tagSepImage);
 	pPropImage->AllowEdit(FALSE);
 	pPropUI->AddSubItem(pPropImage);
 
@@ -1166,11 +1166,11 @@ void CUIProperties::InitPropList()
 	pPropUI=new CMFCPropertyGridProperty(_T("WebBrowser"),classWebBrowser);
 
 	// homepage
-	pProp=new CMFCPropertyGridProperty(_T("homepage"),(_variant_t)_T(""),_T("Ä¬ÈÏÍøÖ·\n"),tagWebBrowserHomePage);
+	pProp=new CMFCPropertyGridProperty(_T("homepage"),(_variant_t)_T(""),_T("é»˜è®¤ç½‘å€\n"),tagWebBrowserHomePage);
 	pPropUI->AddSubItem(pProp);
 
 	// autonavi
-	pProp=new CMFCPropertyGridProperty(_T("autonavi"),(_variant_t)true,_T("ÊÇ·ñÏÔÊ¾Ä¬ÈÏÒ³Ãæ\ntrue"),tagDragable);
+	pProp=new CMFCPropertyGridProperty(_T("autonavi"),(_variant_t)true,_T("æ˜¯å¦æ˜¾ç¤ºé»˜è®¤é¡µé¢\ntrue"),tagDragable);
 	pPropUI->AddSubItem(pProp);
 
 	m_wndPropList.AddProperty(pPropUI);
@@ -2072,8 +2072,8 @@ void CUIProperties::ShowItemProperty( CControlUI* pControl )
 
 void CUIProperties::ShowScrollBarProperty( CControlUI* pControl )
 {
-	//´ó²¿·ÖÊ±ºòÖ»ÔÚÄ¬ÈÏÊôĞÔÖĞÉèÖÃÈ«¾Ö¹ö¶¯ÌõÊôĞÔ
-	//Ä¬ÈÏ²»ÏÔÊ¾»ù´¡¿Ø¼şÊôĞÔ
+	//å¤§éƒ¨åˆ†æ—¶å€™åªåœ¨é»˜è®¤å±æ€§ä¸­è®¾ç½®å…¨å±€æ»šåŠ¨æ¡å±æ€§
+	//é»˜è®¤ä¸æ˜¾ç¤ºåŸºç¡€æ§ä»¶å±æ€§
 	//ShowControlProperty(pControl);
 
 	ASSERT(pControl);

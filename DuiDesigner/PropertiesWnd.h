@@ -1,4 +1,4 @@
-#pragma once
+Ôªø#pragma once
 #include "../DuiLib/UIlib.h"
 #include "UIProperties.h"
 
@@ -11,12 +11,12 @@
 
 class CPropertiesWnd : public CDockablePane
 {
-// ππ‘Ï
+// ¬π¬π√î√¨
 public:
 	CPropertiesWnd();
 	virtual ~CPropertiesWnd();
 
-//  µœ÷
+// √ä¬µ√è√ñ
 public:
 	void AdjustLayout();
 	void SetVSDotNetLook(BOOL bSet);

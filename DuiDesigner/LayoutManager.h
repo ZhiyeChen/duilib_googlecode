@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "..\DuiLib\UIlib.h"
 using DuiLib::CContainerUI;
 using DuiLib::CPaintManagerUI;

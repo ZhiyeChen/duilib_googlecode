@@ -1,19 +1,19 @@
-#pragma once
+ï»¿#pragma once
 #include "UIProperties.h"
 #include "afxwin.h"
 
-// CDialogUIAttribEdit ¶Ô»°¿ò
+// CDialogUIAttribEdit å¯¹è¯æ¡†
 
 class CDialogUIAttribEdit : public CDialog
 {
 	DECLARE_DYNAMIC(CDialogUIAttribEdit)
 
 public:
-	CDialogUIAttribEdit(CWnd* pParent = NULL);   // ±ê×¼¹¹Ôìº¯Êı
+	CDialogUIAttribEdit(CWnd* pParent = NULL);   // æ ‡å‡†æ„é€ å‡½æ•°
 	CDialogUIAttribEdit(CControlUI* pControl);
 	virtual ~CDialogUIAttribEdit();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_DIALOG_UI_ATTRIB_EDIT };
 
 private:
@@ -21,7 +21,7 @@ private:
 	CControlUI* m_pControl;
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
 	DECLARE_MESSAGE_MAP()
 

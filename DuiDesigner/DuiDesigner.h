@@ -1,17 +1,17 @@
-
-// UIDesigner.h : UIDesigner Ó¦ÓÃ³ÌĞòµÄÖ÷Í·ÎÄ¼ş
+ï»¿
+// UIDesigner.h : UIDesigner åº”ç”¨ç¨‹åºçš„ä¸»å¤´æ–‡ä»¶
 //
 #pragma once
 
 #ifndef __AFXWIN_H__
-	#error "ÔÚ°üº¬´ËÎÄ¼şÖ®Ç°°üº¬¡°stdafx.h¡±ÒÔÉú³É PCH ÎÄ¼ş"
+	#error "åœ¨åŒ…å«æ­¤æ–‡ä»¶ä¹‹å‰åŒ…å«â€œstdafx.hâ€ä»¥ç”Ÿæˆ PCH æ–‡ä»¶"
 #endif
 
-#include "resource.h"       // Ö÷·ûºÅ
+#include "resource.h"       // ä¸»ç¬¦å·
 
 
 // CUIDesignerApp:
-// ÓĞ¹Ø´ËÀàµÄÊµÏÖ£¬Çë²ÎÔÄ UIDesigner.cpp
+// æœ‰å…³æ­¤ç±»çš„å®ç°ï¼Œè¯·å‚é˜… UIDesigner.cpp
 //
 
 class CUIDesignerApp : public CWinAppEx
@@ -20,11 +20,11 @@ public:
 	CUIDesignerApp();
 
 
-// ÖØĞ´
+// é‡å†™
 public:
 	virtual BOOL InitInstance();
 
-// ÊµÏÖ
+// å®ç°
 	UINT  m_nAppLook;
 	BOOL  m_bHiColorIcons;
 	CMultiDocTemplate* m_pUIDocTemplate;

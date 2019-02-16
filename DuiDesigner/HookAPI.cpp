@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "HookAPI.h"
 #include <Dbghelp.h>
 
@@ -45,16 +45,16 @@ FARPROC CHookAPI::HookAPI(LPCTSTR pstrDllName,LPCSTR pstrFuncName,FARPROC pfnNew
 		return NULL;
 
 	ULONG size;
-	//»ñÈ¡Ö¸ÏòPEÎÄ¼şÖĞµÄImportÖĞIMAGE_DIRECTORY_DESCRIPTORÊı×éµÄÖ¸Õë
+	//è·å–æŒ‡å‘PEæ–‡ä»¶ä¸­çš„Importä¸­IMAGE_DIRECTORY_DESCRIPTORæ•°ç»„çš„æŒ‡é’ˆ
 	PIMAGE_IMPORT_DESCRIPTOR pImportDesc=(PIMAGE_IMPORT_DESCRIPTOR)
 		ImageDirectoryEntryToData(hModCaller,TRUE,IMAGE_DIRECTORY_ENTRY_IMPORT,&size);
 	if(pImportDesc==NULL)
 		return NULL;
 	HMODULE hModule=LoadLibrary(pstrDllName);
-	//¼ÍÂ¼º¯ÊıµØÖ·
+	//çºªå½•å‡½æ•°åœ°å€
 	FARPROC pfnOriginFunc=GetProcAddress(hModule,pstrFuncName);
 
-	//²éÕÒ¼ÇÂ¼,¿´¿´ÓĞÃ»ÓĞÎÒÃÇÏëÒªµÄDLL
+	//æŸ¥æ‰¾è®°å½•,çœ‹çœ‹æœ‰æ²¡æœ‰æˆ‘ä»¬æƒ³è¦çš„DLL
 	USES_CONVERSION;
 	char* pstrDest=W2A(pstrDllName);
 	for(;pImportDesc->Name;pImportDesc++)
@@ -67,16 +67,16 @@ FARPROC CHookAPI::HookAPI(LPCTSTR pstrDllName,LPCSTR pstrFuncName,FARPROC pfnNew
 	{
 		return NULL;
 	}
-	//Ñ°ÕÒÎÒÃÇÏëÒªµÄº¯Êı
+	//å¯»æ‰¾æˆ‘ä»¬æƒ³è¦çš„å‡½æ•°
 	PIMAGE_THUNK_DATA pThunk=(PIMAGE_THUNK_DATA)((PBYTE)hModCaller+pImportDesc->FirstThunk);
 	for(;pThunk->u1.Function;pThunk++)
 	{
-		//ppfn¼ÇÂ¼ÁËÓëIAT±íÏàÓ¦µÄµØÖ·
+		//ppfnè®°å½•äº†ä¸IATè¡¨ç›¸åº”çš„åœ°å€
 		PROC*ppfn=(PROC*)&pThunk->u1.Function ;
 		if(*ppfn==pfnOriginFunc)
 		{
 			DWORD dwOldProtect;
-			//ĞŞ¸ÄÄÚ´æ°üº¬ÊôĞÔ
+			//ä¿®æ”¹å†…å­˜åŒ…å«å±æ€§
 			VirtualProtect(ppfn, sizeof(DWORD), PAGE_READWRITE, &dwOldProtect);
 			WriteProcessMemory(GetCurrentProcess(),ppfn,&(pfnNewFunc),sizeof(pfnNewFunc),NULL);
 			return pfnOriginFunc;
@@ -89,17 +89,17 @@ FARPROC CHookAPI::HookAPI(LPCTSTR pstrDllName,LPCSTR pstrFuncName,FARPROC pfnNew
 BOOL CHookAPI::HookAPI(LPCTSTR pstrDllName,LPCSTR pstrFuncName,FARPROC pfnNewFunc,HOOKSTRUCT& HookInfo)
 {
 	HMODULE hModule=LoadLibrary(pstrDllName);
-	//¼ÍÂ¼º¯ÊıµØÖ·
+	//çºªå½•å‡½æ•°åœ°å€
 	HookInfo.pfnFuncAddr=GetProcAddress(hModule,pstrFuncName);
 	FreeLibrary(hModule);
 	if(HookInfo.pfnFuncAddr==NULL)
 		return FALSE;
-	//±¸·İÔ­º¯ÊıµÄÇ°5¸ö×Ö½Ú£¬Ò»°ãµÄWIN32 APIÒÔ__stdcallÉùÃ÷µÄAPIÀíÂÛÉÏ¶¼¿ÉÒÔÕâÑù½øĞĞHOOK
+	//å¤‡ä»½åŸå‡½æ•°çš„å‰5ä¸ªå­—èŠ‚ï¼Œä¸€èˆ¬çš„WIN32 APIä»¥__stdcallå£°æ˜çš„APIç†è®ºä¸Šéƒ½å¯ä»¥è¿™æ ·è¿›è¡ŒHOOK
 	memcpy(HookInfo.OldCode,HookInfo.pfnFuncAddr,5);
-	HookInfo.NewCode[0]=0xe9;//¹¹ÔìJMP
-	DWORD dwJmpAddr=(DWORD)pfnNewFunc-(DWORD)HookInfo.pfnFuncAddr-5;//¼ÆËãJMPµØÖ·
+	HookInfo.NewCode[0]=0xe9;//æ„é€ JMP
+	DWORD dwJmpAddr=(DWORD)pfnNewFunc-(DWORD)HookInfo.pfnFuncAddr-5;//è®¡ç®—JMPåœ°å€
 	memcpy(&HookInfo.NewCode[1],&dwJmpAddr,4);
-	EnableHook(HookInfo,TRUE);//¿ªÊ¼½øĞĞHOOK
+	EnableHook(HookInfo,TRUE);//å¼€å§‹è¿›è¡ŒHOOK
 
 	return TRUE;
 }
@@ -107,9 +107,9 @@ BOOL CHookAPI::HookAPI(LPCTSTR pstrDllName,LPCSTR pstrFuncName,FARPROC pfnNewFun
 void CHookAPI::EnableHook(HOOKSTRUCT& HookInfo,BOOL bEnable)
 {
 	if(bEnable)
-		WriteProcessMemory((HANDLE)-1,HookInfo.pfnFuncAddr,HookInfo.NewCode,5,0);//Ìæ»»º¯ÊıµØÖ·
+		WriteProcessMemory((HANDLE)-1,HookInfo.pfnFuncAddr,HookInfo.NewCode,5,0);//æ›¿æ¢å‡½æ•°åœ°å€
 	else
-		WriteProcessMemory((HANDLE)-1,HookInfo.pfnFuncAddr,HookInfo.OldCode,5,0);//»¹Ô­º¯ÊıµØÖ·
+		WriteProcessMemory((HANDLE)-1,HookInfo.pfnFuncAddr,HookInfo.OldCode,5,0);//è¿˜åŸå‡½æ•°åœ°å€
 }
 
 HANDLE WINAPI CHookAPI::Hook_CreateFile(

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 using DuiLib::TImageInfo;
 
 //////////////////////////////////////////////////////////////////////////
@@ -6,9 +6,9 @@ using DuiLib::TImageInfo;
 
 typedef struct tagHOOKSTRUCT
 {
-	FARPROC pfnFuncAddr;//ÓÃÓÚ±£´æAPIº¯ÊıµØÖ·
-	BYTE    OldCode[5]; //±£´æÔ­APIÇ°5¸ö×Ö½Ú
-	BYTE    NewCode[5]; //JMP XXXXÆäÖĞXXXXJMPµÄµØÖ·
+	FARPROC pfnFuncAddr;//ç”¨äºä¿å­˜APIå‡½æ•°åœ°å€
+	BYTE    OldCode[5]; //ä¿å­˜åŸAPIå‰5ä¸ªå­—èŠ‚
+	BYTE    NewCode[5]; //JMP XXXXå…¶ä¸­XXXXJMPçš„åœ°å€
 }HOOKSTRUCT;
 
 typedef HANDLE (WINAPI *pfnCreateFile)(

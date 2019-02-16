@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "resource.h"
 #include "..\DuiLib\UIlib.h"
 using DuiLib::CControlUI;

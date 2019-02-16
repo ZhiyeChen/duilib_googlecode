@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "PropertiesWnd.h"
 #include "Resource.h"
 
@@ -27,7 +27,7 @@ BEGIN_MESSAGE_MAP(CPropertiesWnd, CDockablePane)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CPropertiesWnd ÏûÏ¢´¦Àí³ÌĞò
+// CPropertiesWnd æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 int CPropertiesWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
@@ -164,7 +164,7 @@ void CPropertiesWnd::SetUIValue(CMFCPropertyGridProperty* pProp,int nTag)
 			if(strNewVal.IsEmpty() || pManager->FindControl(strNewVal))
 			{
 				if(!strNewVal.IsEmpty())
-					MessageBox(strNewVal + _T(" Ãû³ÆÒÑ±»ÆäËû¿Ø¼şÊ¹ÓÃ£¡"));
+					MessageBox(strNewVal + _T(" åç§°å·²è¢«å…¶ä»–æ§ä»¶ä½¿ç”¨ï¼"));
 				pProp->SetValue((_variant_t)pControl->GetName());
 				return;
 			}

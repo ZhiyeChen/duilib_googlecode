@@ -1,4 +1,4 @@
-
+Ôªø
 #include "stdafx.h"
 #include "ViewTree.h"
 
@@ -23,7 +23,7 @@ BEGIN_MESSAGE_MAP(CViewTree, CTreeCtrl)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CViewTree œ˚œ¢¥¶¿Ì≥Ã–Ú
+// CViewTree Ê∂àÊÅØÂ§ÑÁêÜÁ®ãÂ∫è
 
 BOOL CViewTree::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {

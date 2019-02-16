@@ -1,4 +1,4 @@
-// DialogCheckUpdate.cpp : ÊµÏÖÎÄ¼ş
+ï»¿// DialogCheckUpdate.cpp : å®ç°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -8,7 +8,7 @@
 
 #pragma comment(lib, "WinInet")
 
-// CDialogCheckUpdate ¶Ô»°¿ò
+// CDialogCheckUpdate å¯¹è¯æ¡†
 
 IMPLEMENT_DYNAMIC(CDialogCheckUpdate, CDialog)
 
@@ -33,13 +33,13 @@ BEGIN_MESSAGE_MAP(CDialogCheckUpdate, CDialog)
 END_MESSAGE_MAP()
 
 
-// CDialogCheckUpdate ÏûÏ¢´¦Àí³ÌĞò
+// CDialogCheckUpdate æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 BOOL CDialogCheckUpdate::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO:  ÔÚ´ËÌí¼Ó¶îÍâµÄ³õÊ¼»¯
+	// TODO:  åœ¨æ­¤æ·»åŠ é¢å¤–çš„åˆå§‹åŒ–
 	CString strLatestVersionInfo = GetLatestVersionInfo(UIDESIGNER_VERSION_CHECK_URL);
 	CString strLastestVersion;
 	CString strUpdateURL;
@@ -49,20 +49,20 @@ BOOL CDialogCheckUpdate::OnInitDialog()
 	this->GetDlgItem(IDC_STATIC_LATEST_VERSION)->SetWindowText(strLastestVersion);
 	CWnd* pWndInfo = this->GetDlgItem(IDC_STATIC_UPDATE_INFO);
 	if(strLatestVersionInfo.IsEmpty())
-		pWndInfo->SetWindowText(_T("¼ì²éĞÂ°æ±¾Ê§°Ü£¡"));
+		pWndInfo->SetWindowText(_T("æ£€æŸ¥æ–°ç‰ˆæœ¬å¤±è´¥ï¼"));
 	else if(strLastestVersion == UIDESIGNER_VERSION)
-		pWndInfo->SetWindowText(_T("ÄúµÄ°æ±¾ÒÑ¾­ÊÇ×îĞÂ£¡"));
+		pWndInfo->SetWindowText(_T("æ‚¨çš„ç‰ˆæœ¬å·²ç»æ˜¯æœ€æ–°ï¼"));
 	else
 	{
 		m_btnUpdateURL.SetURL(strUpdateURL);
-		m_btnUpdateURL.SetTooltip(_T("ÏÂÔØ×îĞÂ°æ±¾"));
+		m_btnUpdateURL.SetTooltip(_T("ä¸‹è½½æœ€æ–°ç‰ˆæœ¬"));
 		m_btnUpdateURL.SizeToContent();
 		m_btnUpdateURL.ShowWindow(SW_SHOW);
-		pWndInfo->SetWindowText(_T("ĞÂ°æ±¾¿É¹©ÏÂÔØ£¡"));
+		pWndInfo->SetWindowText(_T("æ–°ç‰ˆæœ¬å¯ä¾›ä¸‹è½½ï¼"));
 	}
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
-	// Òì³£: OCX ÊôĞÔÒ³Ó¦·µ»Ø FALSE
+	// å¼‚å¸¸: OCX å±æ€§é¡µåº”è¿”å› FALSE
 }
 
 CString CDialogCheckUpdate::GetLatestVersionInfo(LPCTSTR pstrURL)

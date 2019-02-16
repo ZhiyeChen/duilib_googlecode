@@ -1,4 +1,4 @@
-// PropertyTabLayoutUI.cpp : implementation file
+ï»¿// PropertyTabLayoutUI.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -143,7 +143,7 @@ BOOL CPropertyTabLayoutUI::OnInitDialog()
 
 void CPropertyTabLayoutUI::OnBnClickedButtonTabLayoutUIAdd()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	int nClass;
 	switch(m_btnAdd.m_nMenuResult)
 	{
@@ -214,7 +214,7 @@ void CPropertyTabLayoutUI::OnBnClickedButtonTabLayoutUIAdd()
 
 void CPropertyTabLayoutUI::OnBnClickedOk()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	for(int i=0;i<m_lstTab.GetCount();i++)
 	{
 		int nCheck=m_lstTab.GetCheck(i);

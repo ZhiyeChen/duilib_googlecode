@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+﻿#include "StdAfx.h"
 #include "UICommandHistory.h"
 #include "LayoutManager.h"
 #include "UIUtil.h"

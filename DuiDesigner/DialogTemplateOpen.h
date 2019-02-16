@@ -1,22 +1,22 @@
-#pragma once
+ï»¿#pragma once
 #include "afxwin.h"
 #include "UIImagePreview.h"
 
-// CDialogTemplateOpen ¶Ô»°¿ò
+// CDialogTemplateOpen å¯¹è¯æ¡†
 
 class CDialogTemplateOpen : public CDialog
 {
 	DECLARE_DYNAMIC(CDialogTemplateOpen)
 
 public:
-	CDialogTemplateOpen(CWnd* pParent = NULL);   // ±ê×¼¹¹Ôìº¯Êı
+	CDialogTemplateOpen(CWnd* pParent = NULL);   // æ ‡å‡†æ„é€ å‡½æ•°
 	virtual ~CDialogTemplateOpen();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_DIALOG_TEMPLATE_OPEN };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
 	DECLARE_MESSAGE_MAP()
 private:

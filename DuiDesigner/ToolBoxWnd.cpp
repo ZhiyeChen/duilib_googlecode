@@ -1,4 +1,4 @@
-// ToolBoxWnd.cpp : ÊµÏÖÎÄ¼þ
+ï»¿// ToolBoxWnd.cpp : å®žçŽ°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -27,7 +27,7 @@ END_MESSAGE_MAP()
 
 
 
-// CToolBoxWnd ÏûÏ¢´¦Àí³ÌÐò
+// CToolBoxWnd æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 int CToolBoxWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
@@ -70,8 +70,8 @@ void CToolBoxWnd::AdjustLayout()
 
 void CToolBoxWnd::InitToolList()
 {
-	CToolElement* pControlTab=new CToolElement(_T("¿Ø¼þ"));
-	pControlTab->AddSubTool(new CToolElement(_T("Ö¸Õë"),classPointer,IDI_TOOLBOX_POINTER));
+	CToolElement* pControlTab=new CToolElement(_T("æŽ§ä»¶"));
+	pControlTab->AddSubTool(new CToolElement(_T("æŒ‡é’ˆ"),classPointer,IDI_TOOLBOX_POINTER));
 	pControlTab->AddSubTool(new CToolElement(_T("Control"),classControl,IDI_TOOLBOX_CONTROL));
 	pControlTab->AddSubTool(new CToolElement(_T("Label"),classLabel,IDI_TOOLBOX_LABEL));
 	pControlTab->AddSubTool(new CToolElement(_T("Text"),classText,IDI_TOOLBOX_TEXT));
@@ -85,7 +85,7 @@ void CToolBoxWnd::InitToolList()
 	pControlTab->AddSubTool(new CToolElement(_T("ActiveX"),classActiveX,IDI_TOOLBOX_ACTIVE));
 	m_ctlToolList.AddToolTab(pControlTab);
 
-	CToolElement* pLayoutTab=new CToolElement(_T("²¼¾Ö"));
+	CToolElement* pLayoutTab=new CToolElement(_T("å¸ƒå±€"));
 	pLayoutTab->AddSubTool(new CToolElement(_T("Container"),classContainer,IDI_TOOLBOX_CONTAINER));
 	pLayoutTab->AddSubTool(new CToolElement(_T("VerticalLayout"),classVerticalLayout,IDI_TOOLBOX_VERTICAL_LAYOUT));
 	pLayoutTab->AddSubTool(new CToolElement(_T("HorizontalLayout"),classHorizontalLayout,IDI_TOOLBOX_HORIZONTAL_LAYOUT));

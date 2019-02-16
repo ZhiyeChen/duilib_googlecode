@@ -1,4 +1,4 @@
-// DialogSkinFileNew.cpp : implementation file
+ï»¿// DialogSkinFileNew.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -44,7 +44,7 @@ BOOL CDialogSkinFileNew::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	// TODO:  Add extra initialization here
-	m_lstStyles.AddString(_T("(ÎÞ)"));
+	m_lstStyles.AddString(_T("(ÃŽÃž)"));
 	m_lstStyles.SetCurSel(0);
 	FindStyleFiles(CGlobalVariable::GetStylesDir());
 
@@ -90,7 +90,7 @@ void CDialogSkinFileNew::OnLbnSelchangeListStyle()
 
 	m_lstStyles.GetText(nIndex, strText);
 	CString strStyleDir;
-	strStyleDir = (strText == _T("(ÎÞ)")) ? _T("") : CGlobalVariable::GetStylesDir() \
+	strStyleDir = (strText == _T("(ÃŽÃž)")) ? _T("") : CGlobalVariable::GetStylesDir() \
 		+ strText;
 	if(!strStyleDir.IsEmpty())
 	{

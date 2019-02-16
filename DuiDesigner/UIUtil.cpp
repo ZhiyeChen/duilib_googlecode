@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "UIUtil.h"
 
 namespace StringConvertor {

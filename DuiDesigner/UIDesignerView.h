@@ -1,4 +1,4 @@
-// UIDesignerView.h : CUIDesignerView ÀàµÄ½Ó¿Ú
+ï»¿// UIDesignerView.h : CUIDesignerView ç±»çš„æ¥å£
 //
 #pragma once
 #include "..\DuiLib\UIlib.h"
@@ -12,27 +12,27 @@
 
 class CUIDesignerView : public CScrollView, public INotifyUI
 {
-protected: // ½ö´ÓĞòÁĞ»¯´´½¨
+protected: // ä»…ä»åºåˆ—åŒ–åˆ›å»º
 	CUIDesignerView();
 	DECLARE_DYNCREATE(CUIDesignerView)
 
-// ÊôĞÔ
+// å±æ€§
 public:
 	CUIDesignerDoc* GetDocument() const;
 
-// ²Ù×÷
+// æ“ä½œ
 public:
 
-// ÖØĞ´
+// é‡å†™
 public:
-	virtual void OnDraw(CDC* pDrawDC);  // ÖØĞ´ÒÔ»æÖÆ¸ÃÊÓÍ¼
+	virtual void OnDraw(CDC* pDrawDC);  // é‡å†™ä»¥ç»˜åˆ¶è¯¥è§†å›¾
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 protected:
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
 
-// ÊµÏÖ
+// å®ç°
 public:
 	virtual ~CUIDesignerView();
 #ifdef _DEBUG
@@ -88,7 +88,7 @@ private:
 	static CLIPFORMAT m_cfUI;//custom clipboard format
 
 	CBrush m_brHatch;
-// Éú³ÉµÄÏûÏ¢Ó³Éäº¯Êı
+// ç”Ÿæˆçš„æ¶ˆæ¯æ˜ å°„å‡½æ•°
 protected:
 	afx_msg void OnFilePrintPreview();
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
@@ -150,7 +150,7 @@ public:
 	afx_msg void OnStyleSaveAs();
 };
 
-#ifndef _DEBUG  // UIDesignerView.cpp ÖĞµÄµ÷ÊÔ°æ±¾
+#ifndef _DEBUG  // UIDesignerView.cpp ä¸­çš„è°ƒè¯•ç‰ˆæœ¬
 inline CUIDesignerDoc* CUIDesignerView::GetDocument() const
    { return reinterpret_cast<CUIDesignerDoc*>(m_pDocument); }
 #endif

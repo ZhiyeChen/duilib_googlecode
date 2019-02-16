@@ -1,21 +1,21 @@
-#pragma once
+ï»¿#pragma once
 #include "resource.h"
 
-// CDialogProjectNew ¶Ô»°¿ò
+// CDialogProjectNew å¯¹è¯æ¡†
 
 class CDialogProjectNew : public CDialog
 {
 	DECLARE_DYNAMIC(CDialogProjectNew)
 
 public:
-	CDialogProjectNew(CWnd* pParent = NULL);   // ±ê×¼¹¹Ôìº¯Êı
+	CDialogProjectNew(CWnd* pParent = NULL);   // æ ‡å‡†æ„é€ å‡½æ•°
 	virtual ~CDialogProjectNew();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_PROJECT_NEW };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
 	DECLARE_MESSAGE_MAP()
 

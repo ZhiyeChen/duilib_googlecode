@@ -1,4 +1,4 @@
-#pragma once
+Ôªø#pragma once
 #include "ViewTree.h"
 #include "tinyxml.h"
 
@@ -6,12 +6,12 @@
 //CFileViewTree
 class CFileViewTree : public CTreeCtrl
 {
-	// ππ‘Ï
+	// ÊûÑÈÄ†
 public:
 	CFileViewTree();
 	virtual ~CFileViewTree();
 
-	// ÷ÿ–¥
+	// ÈáçÂÜô
 protected:
 	virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult);
 
@@ -43,21 +43,21 @@ class CFileView : public CDockablePane
 {
 	friend class CFileViewTree;
 
-// ππ‘Ï
+// ÊûÑÈÄ†
 public:
 	CFileView();
 
 	void AdjustLayout();
 	void OnChangeVisualStyle();
 
-//  Ù–‘
+// Â±ûÊÄß
 protected:
 
 	CFileViewTree m_wndFileView;
 	CImageList m_FileViewImages;
 	CFileViewToolBar m_wndToolBar;
 
-//  µœ÷
+// ÂÆûÁé∞
 public:
 	virtual ~CFileView();
 
