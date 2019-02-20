@@ -1,3 +1,6 @@
-DuiDesigner/UnicodeDebug/
-DuiDesigner/UnicodeRelease/
-./DuiLib/build
+DuiDesigner/UnicodeDebug
+DuiDesigner/UnicodeRelease
+DuiLib/build
+bin/*.exe
+bin/*.dll
+lib
