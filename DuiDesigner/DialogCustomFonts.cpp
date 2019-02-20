@@ -1,4 +1,4 @@
-// DialogCustomFonts.cpp : implementation file
+ï»¿// DialogCustomFonts.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -102,8 +102,8 @@ void CDialogCustomFonts::OnBnClickedButtonFontDelete()
 	int nIndex = m_lstCustomFonts.GetSelectionMark();
 	if(nIndex == -1)
 		return;
-	if(MessageBox(_T("É¾³ý´Ë×ÖÌåºó£¬Ê¹ÓÃÁËÆäºó×ÖÌåµÄ¿Ø¼þ£¬\n¾ùÐèÊÖ¶¯ÐÞ¸ÄÐòºÅ£¬ÇëÉ÷ÓÃ´Ë¹¦ÄÜ£¡")
-		, _T("ÌáÊ¾"), MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL)
+	if(MessageBox(_T("åˆ é™¤æ­¤å­—ä½“åŽï¼Œä½¿ç”¨äº†å…¶åŽå­—ä½“çš„æŽ§ä»¶ï¼Œ\nå‡éœ€æ‰‹åŠ¨ä¿®æ”¹åºå·ï¼Œè¯·æ…Žç”¨æ­¤åŠŸèƒ½ï¼")
+		, _T("æç¤º"), MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL)
 		return;
 
 	if(m_pManager->RemoveFontAt(nIndex))
